@@ -1,0 +1,66 @@
+.list {
+  min-height: 100%;
+  background: $rowBackground;
+  @include user-select(none);
+}
+
+.list-row {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 30px 10px 10px;
+  color: lighten($textColor, 20%);
+  text-shadow: 0 1px white;
+
+  &:after {
+    content: '\203a';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -17px;
+    font: bold 32px/1 Avenir, Arial, sans-serif;
+    color: #a7a7a7;
+  }
+
+  &:nth-child(2n) { background: $bodyBackground; }
+
+  & + & {
+    border-top: 1px solid darken($rowBackground, 15%);
+    @include box-shadow(inset 0 1px rgba(white, .5));
+  }
+
+  &:active {
+    color: white;
+    text-shadow: 0 -1px rgba(black, .3);
+    background: #1472e7;
+    @include linear-gradient(top, #1a8ef2, #1062e2);
+    @include box-shadow(inset 0 1px rgba(black, .1), inset 0 -1px rgba(black, .1));
+
+    > .list-title, &:after { color: white; }
+  }
+}
+
+.list-title {
+  display: block;
+  margin-bottom: 2px;
+  font-size: $fontSize + 1px;
+  font-weight: bold;
+  color: $textColor;
+
+  &:only-child { margin-bottom: 0; }
+}
+
+.list-thumb {
+  float: left;
+  width: 62px;
+  height: 62px;
+  margin-right: 12px;
+  background: #2f66b2;
+  background-clip: padding-box;
+  border: 1px solid;
+  border-color: #154291 #0c2d6b #0a2558;
+  border-radius: 10px;
+  @include linear-gradient(top, #599fef, #123f89);
+  @include box-shadow(inset 0 1px rgba(white, .2),
+                      inset 0 0 0 1px rgba(white, .15),
+                      0 1px 1px rgba(black, .15));
+}

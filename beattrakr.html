@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>BeatTrakr</title>
+  <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <style>
+body, html {margin:0; padding:0; height:100%; width:100%;}
+div#map {width:100%; height:100%;}
+</style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script type="text/javascript">
+//5 digits is 1m accuracy
+var locations = [
+  //Dharmapuri Town
+  ['B827EBF24A95', 12.11192, 78.14973, 'TAMS colony', 'Rajagopal', '94438-69405'],
+  ['B827EBEC4FD9', 12.12825, 78.15730, 'Nedumaran Nagar', 'Kumaran', '94430-83818'],
+  ['B827EB484FFC', 12.13346, 78.16507, 'Bazar street', 'Mani', '90926-69282,94427-20001'],
+  ['B827EB07340C', 12.13012, 78.16323, 'Sathiram meltheru', 'Kamarjahan', '99949-63984'],
+  ['B827EBC42862', 12.13105, 78.15454, 'Pidamaneri', 'Kandasamy', '80159-04299'],
+  ['B827EB46D1F0', 12.11848, 78.16342, 'Annasagaram', 'V.Vidhya', '97892-43243'],
+  ['B827EB0FB46A', 12.17393, 78.13617, 'Kadagathur', 'Subramani(Teashop)', '99430-48710,72007-85983'],
+  ['B827EBFE2A85', 12.13742, 78.15126, 'ASTC nagar', 'C.J.Vincent', '94432-74905'],
+  ['B827EBD8844A', 12.11408, 78.14676, 'Vennampatty', 'Rajasekar', '94434-82768'],
+  //Harur
+  ['B827EB613BE4', 12.05324, 78.47444, 'Govindhasamy nagar', 'K.A.Annamalai', '94863-49051'],
+  ['B827EBCEB3F9', 12.05664, 78.47700,  'TVK nagar', 'G.Murugan', '99947-89630'],
+  ['B827EBF171D0', 12.04891, 78.47780, 'Periyar nagar Jn', 'Sathish Kumar', '94439-81295'],
+  ['B827EB759ECB', 12.05340, 78.48296, 'Bus stand opp', 'K.V.Boobathiraja', '93448-61677'],
+  ['B827EBB81DDE', 12.05168, 78.48300, 'Bazar street', 'Mahadevan', '94439-81617'],
+  //Poppireddipatty
+  ['B827EB82D41A', 11.92709, 78.34532, 'Venkatasamuthram Jn', 'Shajahan', '94435-52169'],
+  ['B827EB8BF76F', 11.91192, 78.36666, 'Bus stand opp', 'Vijayakumar', '99428-90835'],
+  ['B827EB2111E2', 11.88951, 78.37664, 'Samiyapuram kuttu road', 'K.P.Krishnan', '99432-7637'],
+  ['B827EB8A38D6', 11.85415, 78.36275, 'Kallipettai', 'Srinivasan', '94437-79408, 94880-79408'],
+  //Palacode
+  ['B827EB9BA191', 12.30657, 78.07849, 'By pass fourth cross', 'P.Venkatesan', '91506-98540'],
+  ['B827EB266CAD', 12.30210, 78.07351, 'Theerthagiri nagar', 'Jeevakrishnan', '94434-33461'],
+  ['B827EB63C63F', 12.34701, 78.09815, 'Dhandukaranahalli', 'Umashankar', '98949-36610'],
+  ['B827EBFE2A85', 12.29117, 78.09684, 'Velavalli', 'Sekar', '94435-09464'],
+  ['B827EB7606D9', 12.30572, 78.06876, 'Meltheru, Mandhaveli', 'P.Subramani', '98653-24577'],
+  //Pennagaram
+  ['B827EB44712F', 12.11572, 77.92792, 'Mangarai', 'Thangadurai', '95858-55468'],
+  ['B827EBC6CB14', 12.12839, 77.90114, 'Perumbalai Jn', 'Gowran', '90474-77787'],
+  ['B827EBD389AC', 12.14071, 77.95605, 'Balinjarahalli', 'Perumal', '98426-95285'],
+  ['B827EBB18EA0', 12.13373, 77.89554, 'Bazar street', 'D.Rajan', '80159-97562'],
+];
+
+var iconURLPrefix = 'http://maps.google.com/mapfiles/ms/icons/';
+var icons = [
+  iconURLPrefix + 'red-dot.png',
+  iconURLPrefix + 'green-dot.png',
+  iconURLPrefix + 'blue-dot.png',
+  iconURLPrefix + 'orange-dot.png',
+  iconURLPrefix + 'purple-dot.png',
+  iconURLPrefix + 'pink-dot.png',
+  iconURLPrefix + 'yellow-dot.png'
+]
+var icons_idx = 0;
+
+var map = new google.maps.Map(document.getElementById('map'), {
+  mapTypeId: google.maps.MapTypeId.ROADMAP,
+  mapTypeControl: false,
+  streetViewControl: false,
+  panControl: false,
+  zoomControlOptions: {position: google.maps.ControlPosition.LEFT_BOTTOM}
+});
+
+//var infowindow = new google.maps.InfoWindow({maxWidth: 250});
+var infowindow = new google.maps.InfoWindow();
+var marker;
+var markers = new Array();
+
+//AutoCenter: new viewpoint bound
+var latlngbounds = new google.maps.LatLngBounds();
+
+// Add the markers and infowindows to the map
+for (var i = 0; i < locations.length; i++) {
+  marker = new google.maps.Marker({
+    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+    map: map,
+    icon: icons[icons_idx],
+  });
+  markers.push(marker);
+  google.maps.event.addListener(marker, 'click', (function(marker, i) {
+    return function() {
+      infowindow.setContent('<p><b>'+locations[i][3]+'</b><br/>'+locations[i][4]+'<br/>'+locations[i][5]+'</p>');
+      infowindow.open(map, marker);
+    }
+  })(marker, i));
+
+  icons_idx++;
+  if (icons_idx >= icons.length) { icons_idx = 0; }
+
+  //AutoCenter: define bounds
+  latlngbounds.extend(marker.position);
+}
+//AutoCenter: Fit these bounds to the map
+map.fitBounds(latlngbounds);
+var listener = google.maps.event.addListenerOnce(map, "idle", function() {
+  if (map.getZoom() > 16) map.setZoom(16);
+  //google.maps.event.removeListener(listener);
+});
+
+  </script>
+</body>
+</html>

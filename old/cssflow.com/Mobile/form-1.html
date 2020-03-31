@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mobile UI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body ontouchstart="">
+<div class="demo">
+  <form class="app">
+    <header class="header">
+      <div class="header-buttton-group left">
+        <a href="form-1.html" class="header-button active">Base</a>
+        <a href="form-2.html" class="header-button">Options</a>
+        <a href="form-3.html" class="header-button">Switches</a>
+      </div>
+
+      <input type="submit" value="Submit" class="header-button right light">
+    </header>
+
+    <section class="container">
+      <h2 class="heading">Text fields</h2>
+
+      <fieldset>
+        <p>
+          <label for="email" class="text-label">Email</label>
+          <input type="email" name="email" id="email" class="text-field" value="name@example.com">
+        </p>
+        <p>
+          <label for="password" class="text-label">Password</label>
+          <input type="password" name="password" id="password" class="text-field" value="password">
+        </p>
+        <p>
+          <!-- <label for="textarea">Bio</label> -->
+          <textarea name="textarea" id="textarea" class="text-area" placeholder="Bio…"></textarea>
+          <span class="hint">About yourself in 160 characters or less.</span>
+        </p>
+      </fieldset>
+
+      <h2 class="heading">Select</h2>
+
+      <fieldset>
+        <p class="select-container">
+          <select name="select" class="select">
+            <option value="" selected>Select Country…</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </p>
+      </fieldset>
+    </section>
+
+    <nav class="footer">
+      <a href="index.html" class="footer-link">
+        <span class="icon-home"></span> Home
+      </a>
+      <a href="menu.html" class="footer-link">
+        <span class="icon-more"></span> Menu
+      </a>
+      <a href="form-1.html" class="footer-link active">
+        <span class="icon-square"></span> Forms
+      </a>
+      <a href="list-1.html" class="footer-link">
+        <span class="icon-circle"></span> Lists
+      </a>
+    </nav>
+  </form>
+</div>
+</body>
+</html>

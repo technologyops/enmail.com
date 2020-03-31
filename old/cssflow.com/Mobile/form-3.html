@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mobile UI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body ontouchstart="">
+<div class="demo">
+  <form class="app">
+    <header class="header">
+      <div class="header-buttton-group left">
+        <a href="form-1.html" class="header-button">Base</a>
+        <a href="form-2.html" class="header-button">Options</a>
+        <a href="form-3.html" class="header-button active">Switches</a>
+      </div>
+
+      <input type="submit" value="Submit" class="header-button right light">
+    </header>
+
+    <section class="container">
+      <h2 class="heading">Default</h2>
+
+      <fieldset class="boxed-list switch-list">
+        <label class="boxed-list-row switch">
+          <input type="checkbox" name="switch_1" value="1" class="switch-input" checked>
+          <span data-on="I" data-off="O" class="switch-handle"></span>
+          Mail
+        </label>
+        <label class="boxed-list-row switch">
+          <input type="checkbox" name="switch_2" value="1" class="switch-input" checked>
+          <span data-on="I" data-off="O" class="switch-handle"></span>
+          Contacts
+        </label>
+        <label class="boxed-list-row switch">
+          <input type="checkbox" name="switch_3" value="1" class="switch-input">
+          <span data-on="I" data-off="O" class="switch-handle"></span>
+          Calendars
+        </label>
+      </fieldset>
+
+      <h2 class="heading">Round</h2>
+
+      <fieldset class="boxed-list switch-list">
+        <label class="boxed-list-row switch round">
+          <input type="checkbox" name="switch_4" value="1" class="switch-input">
+          <span data-on="On" data-off="Off" class="switch-handle"></span>
+          Reminders
+        </label>
+        <label class="boxed-list-row switch round">
+          <input type="checkbox" name="switch_5" value="1" class="switch-input" checked>
+          <span data-on="On" data-off="Off" class="switch-handle"></span>
+          Safari
+        </label>
+        <label class="boxed-list-row switch round">
+          <input type="checkbox" name="switch_6" value="1" class="switch-input">
+          <span data-on="On" data-off="Off" class="switch-handle"></span>
+          Notes
+        </label>
+      </fieldset>
+    </section>
+
+    <nav class="footer">
+      <a href="index.html" class="footer-link">
+        <span class="icon-home"></span> Home
+      </a>
+      <a href="menu.html" class="footer-link">
+        <span class="icon-more"></span> Menu
+      </a>
+      <a href="form-1.html" class="footer-link active">
+        <span class="icon-square"></span> Forms
+      </a>
+      <a href="list-1.html" class="footer-link">
+        <span class="icon-circle"></span> Lists
+      </a>
+    </nav>
+  </form>
+</div>
+</body>
+</html>

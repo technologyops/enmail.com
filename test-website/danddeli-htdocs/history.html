@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>DANDDELI - Ferro Alloy Technologies</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body bgcolor="#D7D7D7">
+
+<!-- Main Container -->
+<div id="main_cntr">
+
+<!-- Container for Logo -->
+<div id="logo_cnt"><img src="images/logo.jpg" width="262" height="89" align="right" class="logo_padding"/></div>
+
+<!-- Container for Slide Image -->
+<div id="slide_cnt1">
+
+
+<script type="text/javascript" src="new_js/jquery.1.3.2-min.js"></script>
+
+<script type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose; 
+</script>
+
+<script type="text/javascript">
+      (function ($) {
+        $.fn.fadeTransition = function(options) {
+          var options = $.extend({pauseTime: 5000, transitionTime: 2000, ignore: null, delayStart: 0, pauseNavigation: false}, options);
+          var transitionObject;
+
+          Trans = function(obj) {
+            var timer = null;
+            var current = 0;
+            var els = (options.ignore)?$("> *:not(" + options.ignore + ")", obj):$("> *", obj);
+            $(obj).css("position", "relative");
+            els.css("display", "none").css("left", "0").css("top", "0").css("position", "absolute");
+            
+            if (options.delayStart > 0) {
+              setTimeout(showFirst, options.delayStart);
+            }
+            else
+              showFirst();
+
+            function showFirst() {
+              if (options.ignore) {
+                $(options.ignore, obj).fadeOut(options.transitionTime);
+                $(els[current]).fadeIn(options.transitionTime);
+              }
+              else {
+                $(els[current]).css("display", "block");
+              }
+            }
+
+            function transition(next) {
+              $(els[current]).fadeOut(options.transitionTime);
+              $(els[next]).fadeIn(options.transitionTime);
+              current = next;
+              cue();
+            };
+
+            function cue() {
+              if ($("> *", obj).length < 2) return false;
+              if (timer) clearTimeout(timer);
+              if (!options.pauseNavigation) {
+                timer = setTimeout(function() { transition((current + 1) % els.length | 0)} , options.pauseTime);
+              }
+            };
+            
+            this.showItem = function(item) {
+              if (timer) clearTimeout(timer);
+              transition(item);
+            };
+
+            cue();
+          }
+
+          this.showItem = function(item) {
+            transitionObject.showItem(item);
+          };
+
+          return this.each(function() {
+            transitionObject = new Trans(this);
+          });
+        }
+
+      })(jQuery);
+    
+      var page = {
+        tr: null,
+        init: function() {
+          page.tr = $(".area").fadeTransition({pauseTime: 5000, transitionTime: 2000, ignore: "#introslide", delayStart: 0});
+          $("div.navigation").each(function() {
+            $(this).children().each( function(idx) {
+              if ($(this).is("a"))
+                $(this).click(function() { page.tr.showItem(idx); return false; })
+            });
+
+          });
+        },
+
+        show: function(idx) {
+          if (page.tr.timer) clearTimeout(page.tr.timer);
+          page.tr.showItem(idx);
+        }
+      };
+
+      $(document).ready(page.init);    
+    </script>
+
+
+<style type="text/css">
+#sddm
+{	margin: 0;
+	padding: 0;
+	z-index: 30}
+
+#sddm li
+{	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	font: bold 11px arial;
+	
+	}
+
+
+
+
+#sddm li a
+{	display: block;	
+	padding: 4px 10px;
+	width: 118px;
+	background: none;
+	color: #000000;
+	text-align: center;
+	text-decoration: none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#000000;
+	font-weight:bold;	
+	}
+
+#sddm li a:hover
+{	background: none;}
+
+#sddm div
+{	position: absolute;
+	visibility: hidden;
+	margin-top:9px;
+	padding: 0;
+	background:none;
+	border: 1px solid #5970B2;
+	width:330px;
+	}
+
+	#sddm div a
+	{	
+		display: block;
+		margin: 0;
+		padding: 5px 10px;
+		width: auto;
+		white-space: nowrap;
+		text-align: left;
+		text-decoration: none;
+		background: #EAEBD8;
+		color: #000000;
+		font: 13px arial;
+		}
+
+	#sddm div a:hover
+	{	background: #49A3FF;
+		color: #FFF}
+</style>
+
+<script type="text/javascript">
+      (function ($) {
+        $.fn.fadeTransition = function(options) {
+          var options = $.extend({pauseTime: 5000, transitionTime: 2000, ignore: null, delayStart: 0, pauseNavigation: false}, options);
+          var transitionObject;
+
+          Trans = function(obj) {
+            var timer = null;
+            var current = 0;
+            var els = (options.ignore)?$("> *:not(" + options.ignore + ")", obj):$("> *", obj);
+            $(obj).css("position", "relative");
+            els.css("display", "none").css("left", "0").css("top", "0").css("position", "absolute");
+            
+            if (options.delayStart > 0) {
+              setTimeout(showFirst, options.delayStart);
+            }
+            else
+              showFirst();
+
+            function showFirst() {
+              if (options.ignore) {
+                $(options.ignore, obj).fadeOut(options.transitionTime);
+                $(els[current]).fadeIn(options.transitionTime);
+              }
+              else {
+                $(els[current]).css("display", "block");
+              }
+            }
+
+            function transition(next) {
+              $(els[current]).fadeOut(options.transitionTime);
+              $(els[next]).fadeIn(options.transitionTime);
+              current = next;
+              cue();
+            };
+
+            function cue() {
+              if ($("> *", obj).length < 2) return false;
+              if (timer) clearTimeout(timer);
+              if (!options.pauseNavigation) {
+                timer = setTimeout(function() { transition((current + 1) % els.length | 0)} , options.pauseTime);
+              }
+            };
+            
+            this.showItem = function(item) {
+              if (timer) clearTimeout(timer);
+              transition(item);
+            };
+
+            cue();
+          }
+
+          this.showItem = function(item) {
+            transitionObject.showItem(item);
+          };
+
+          return this.each(function() {
+            transitionObject = new Trans(this);
+          });
+        }
+
+      })(jQuery);
+    
+      var page = {
+        tr: null,
+        init: function() {
+          page.tr = $(".area").fadeTransition({pauseTime: 5000, transitionTime: 2000, ignore: "#introslide", delayStart: 0});
+          $("div.navigation").each(function() {
+            $(this).children().each( function(idx) {
+              if ($(this).is("a"))
+                $(this).click(function() { page.tr.showItem(idx); return false; })
+            });
+
+          });
+        },
+
+        show: function(idx) {
+          if (page.tr.timer) clearTimeout(page.tr.timer);
+          page.tr.showItem(idx);
+        }
+      };
+
+      $(document).ready(page.init);    
+    </script>
+	
+
+<div id="slide_show_new" class="menu_font" align="right">
+		
+	<ul id="sddm">
+    <li><a href="index.html" style="padding-top:8px;">&nbsp;</a>
+       
+    </li>
+    <li><a href="index.html" style="padding-top:8px; margin-left:160px;border-right:2px solid #000000;">About Us</a>
+    <li style="border-right:2px solid #000000;"><a href="#" 
+        onmouseover="mopen('m3')" 
+        onmouseout="mclosetime()" style="padding-top:8px;">Activities <img src="down.gif" width="9" height="5" border="0" /></a>
+		
+		<div id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()" style="box-shadow: 5px 5px 8px #000000;
+-webkit-box-shadow: 5px 5px 8px #000000;-moz-box-shadow: 5px 5px 8px #000000;">
+			
+		<a href="process_tech.html" style="border-bottom:1px solid #5970B2;">Process Technology Transfers</a>
+        <a href="concep_executing.html" style="border-bottom:1px solid #5970B2;">Conceptualizing and Executing Projects</a>
+        <a href="research_devmnt.html" style="border-bottom:1px solid #5970B2;">Research and Development Projects</a>
+        <a href="ferro_alloy_production.html" style="border-bottom:1px solid #5970B2;">Ferro Alloy Production Practices Training <br />Program</a>
+		<a href="operation_services.html" style="border-bottom:1px solid #5970B2;">Operations Services</a>	
+		<a href="manufacturing_operations.html" style="border-bottom:1px solid #5970B2;">Manufacturing Operations</a>        </div>
+		
+		</li>
+	<li style="border-right:1px solid #CCCCCC;"><a href="vision.html" style="padding-top:8px;border-right:2px solid #000000;">Vision</a></li>
+	<!-- <li style="border-right:2px solid #000000;"><a href="history.html">History</a></li>
+     <li style="border-right:2px solid #000000;"><a href="mission.html">Mission </a></li> -->
+	<li style="border-right:1px solid #CCCCCC;"><a href="team.html" style="padding-top:8px;border-right:2px solid #000000;">Team</a></li>
+    <li><a href="contact_us.html" style="padding-top:8px; padding-left:11px;">Contact Us</a></li>
+	
+	
+</ul>
+<div style="clear:both"></div>
+		
+		
+	</div> 
+<div class="area" align="left" style="height:311px;width:753px;">
+
+			
+        <div class="rotator r10"><img src="images/slides/slide_final.jpg"/></div>
+        <div class="rotator r10"><img src="images/slides/slide_2.jpg"/></div>
+		<div class="rotator r10"><img src="images/slides/slide_demo3.jpg"/></div>
+		<div class="rotator r10"><img src="images/slides/slide_demo.jpg"/></div>					
+		<div class="rotator r10"><img src="images/slides/slide3.jpg"/></div>
+		<div class="rotator r10"><img src="images/slides/slide_demo1.jpg"/></div>
+		<div class="rotator r10"><img src="images/slides/slide_demo2.jpg"/></div>
+		<div class="rotator r10"><img src="images/slides/slide4.jpg"/></div>		
+</div>
+	  
+
+</div>
+<!-- Main Image Container Ends -->
+
+<!-- Body Container -->
+<div id="body_container" class="body_font">
+
+<p class="body_headers">History :</p>
+
+
+<div style="padding-left:14px;padding-right:17px; text-align:justify;">
+
+<p><span class="red_heading">Shri Lalbhai Patel</span>, our Founder, a renowned freedom fighter operated a Chemical manufacturing business' in Bombay. As an extension he had acquired manganese mining rights in the Southern portions of Bombay State during the 1940's. However his passion to see India achieve its freedom with all his zeal did not enable him to focus on the mining activities whilst he was an integral part of India's freedom movement.</p>
+
+<p>After independence he concentrated on his mining activities in the malaria infected jungles around Londa, Bombay State. Within a few years he converted Nagri Mining Company into India's second largest Manganese mining company. The entire production was exported. Interestingly he had an open offer of an assured job for all freedom fighters at what was fondly known as Lalbhai's mines. As a consequence over 5000 people manned the central mining camp at Chapoli. Infact some of the early managerial personnel included great freedom fighters like Shri Umashankar Dixitji who later became the Governor of UP.</p>
+
+<p>In 1955, Shri Lalbhai Patel, selected the village of DANDDELI, then a part of the Bombay State as a suitable site for setting up India’s FIRST Electric route Ferro Alloy plant. The availability of raw materials in the local region and the abundance of cheap hydro electric power prompted him to set up Electro Metallurgical Works (EMW) at DANDDELI, which is today an important town in the State of Karnataka, a State in the southwest region of India. EMW operated an electric sub-merged arc reduction furnace, which was built by Elkem of Norway. The entire production of High Carbon Ferro Manganese was exported to European destinations. With the development of the Indian Steel industry, EMW emerged as one of the critical suppliers of an acutely required import substitute.</p>
+
+<p>The rapidly growing Indian Steel industry imported specialty Ferro Alloys. EMW, in the 60’s rose to the challenge and was the first in India to manufacture specialty Ferro Alloys namely Medium Carbon Silico Manganese. Encouraged, the company expanded with the installation of a refining furnace from Birlec of England (1962) and commenced manufacturing another strategically required Ferro Alloy - Medium Carbon Ferro Manganese. The in-house Research & Development enabled the company to commercialize yet another process for the manufacture of another specialty Ferro Alloy - Low Carbon Silico Manganese.</p>
+
+<p>During the 70’s EMW was amalgamated with what is today known as Danddeli Ferro Private Limited (DANDDELI). During this period DANDDELI installed another refining furnace (1975) which was dedicated to meet the needs of the exceptionally quality conscious welding electrode industry. The in-house Research & Development, once again helped commercialize the processes for manufacturing Low Carbon Ferro Manganese, Extra Low Carbon Ferro Manganese and Extra Low Carbon Silico Manganese.</p>
+
+<p>The remarkably active research & development department enabled DANDDELI to introduce to the Indian market strategic and sophisticated Ferro Alloys like Ferro Titanium, Ferro Tungsten, Ferro Vanadium, Ferro Boron, Ferro Molybdenum etc. A Chemical plant was set up to produce Vanadium Pentoxide utilizing the waste of a nearby aluminum industry. The Vanadium Pentoxide was further utilized to produce Ferro Vanadium.</p>
+
+<p>The 70’s were therefore a period of consolidation and DANDDELI earned itself a reputation as an innovative & dynamic high quality supplier of specialty Ferro Alloys to the Indian Steel industry.</p>
+
+<p>To further improve production efficiencies sophisticated refining technologies were imported from Uddeholm of Sweden in the 80’s. However due to an acute power shortage in the State of Karnataka, DANDDELI was affected by the non availability of power.</p>
+
+<p>The persistent failure of monsoon in the State of Karnataka during the 80’s rendered the State’s predominantly hydel power generating resources incapable of meeting the State’s power requirements. As a result, power cuts of up to 80% were imposed on large industrial consumers.</p>
+
+<p>The production of Ferro Alloys is extremely dependent on the continuous availability and price of power. Power is used to meet the heat requirement of the reduction reactions. Continuous availability of power is therefore an absolute necessity to enable efficient and reliable production to achieve relatively better efficiencies. </p>
+
+<p>During the 80’s the non-availability of power rendered DANDDELI’s operation inviable and on account of a complete erosion of the net worth DANDDELI was declared a sick unit and was referred to the Board For Industrial & Financial Reconstruction (BIFR) for evolving a revival scheme. The scheme for rehabilitation envisaged expanding into steel production as a comparatively profitable use of the available power. A 5000 kVA HBB EAF was added and DANDDELI begun producing steel. </p>
+
+<p>During the early 90’s DANDDELI was able to turn around its operation and successfully repaid all its lenders. However, DANDDELI realized its dependence on the availability and price of power and chalked out a long-term strategy to make captive its entire power needs.</p>
+
+<p>During the 90’s India saw itself free from Licensing limitations and a liberalized economic scenario emerged. DANDDELI promptly drew up its business plan to meet the new market driven economy and the plan envisaged -</p>
+
+	<ul style="list-style:lower-alpha;">
+	<li class="ul_padding">Expand production capacity by installing a 7500 kVA Submerged Arc Smelting Furnace.</li>
+	<li class="ul_padding">Install furnace oil based diesel-generating sets of upto 15 MW at plant site to ensure uninterrupted power supply.</li>
+	<li class="ul_padding">Install hydel power plant of upto 20 MW to reduce the effective power cost.</li>
+	</ul>
+
+<p>Accordingly, modernization projects at DANDDELI were taken up and a 7500 kVA Elkem make Submerged Arc Reduction Furnace project was commenced in 1995 & was commissioned during the second quarter of 1997.</p>
+
+<p>The medium term plan envisaged the setting up of Furnace Oil based Diesel Generating power plant and a 4750 kVA plant was commissioned in June 1998.</p>
+
+<p>DANDDELI obtained the rights for executing two Mini Hydel Power projects namely, Aanveri Mini Hydel Scheme (AMHS) (1.5 MW) and Tunga Hydro Electric Power Project (Tunga HEPP) (20 MW). AMHS has since been successfully executed and was brought on stream during August 1997. Executing AMHS provided DANDDELI significant experience in executing Mini Hydel power projects.</p>
+
+<p>Whilst operating Aanveri MHS and executing Tunga HEPP, DANDDELI received an attractive proposal and is today as a consequence debt free and pursuing its passion – Ferro Alloys.</p>
+
+<p>Historically, DANDDELI has practiced values, ethics and principles that have been laid down by our founder.</p>
+
+<p>This era visualizes focusing on Process technologies, Research & Development, Certificate courses & Training programmes to impart the knowledge and expertise imbibed over the last 50 + years.</p>
+
+</div>
+
+
+  <p class="body_font">&nbsp;</p>
+</div>
+<!-- Body Container Ends -->
+
+<!-- Bottom Container -->
+<div id="bottom_cntr_new" class="body_font">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<div id="bottom_cntr_new" class="body_font">
+<br />© 2012 DANDDELI <br />
+</div>
+</div>
+
+<!-- Main Container Ends -->
+</div>
+
+
+</body>
+</html>

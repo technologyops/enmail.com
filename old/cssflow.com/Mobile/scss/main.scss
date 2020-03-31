@@ -1,0 +1,49 @@
+$fontFamily: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$fontSize: 13px;
+$lineHeight: 1.5;
+$textColor: #555;
+$bodyBackground: #e6ecee;
+$rowBackground: #f1f5f7;
+
+@import 'mixins', 'reset';
+
+body {
+  font: #{$fontSize}/#{$lineHeight} $fontFamily;
+  color: $textColor;
+  background: $bodyBackground;
+  /* Prevent text size adjust after orientation change, without disabling user zoom. */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* Improve font rendering on desktop browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Disable context menu (copy, open in new page, etc.). */
+  -webkit-touch-callout: none;
+}
+
+a {
+  font-weight: bold;
+  color: darken($textColor, 10%);
+  text-decoration: none;
+  /* Remove the default gray highlight. */
+  -webkit-tap-highlight-color: rgba(black, 0);
+}
+
+@import 'header',
+        'footer',
+        'layout',
+        'subheader',
+        'menu',
+        'heading',
+        'text',
+        'list',
+        'boxed-list',
+        'letter-list',
+        'form',
+        'text-fields',
+        'select',
+        'button',
+        'options',
+        'switch',
+        'switch-list',
+        'pills',
+        'tag';

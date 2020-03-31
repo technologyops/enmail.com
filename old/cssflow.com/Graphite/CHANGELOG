@@ -1,0 +1,20 @@
+# Version 2.0
+
+  * Refactor most components (some filenames have changed).
+
+  * New components: text-input hints, button dropdowns, tables, alerts and
+    horizontal lines.
+
+  * Increase the default size of most elements.
+
+  * Add progress bar labels.
+
+  * Add focus state of dropdown lists (selects) and switches.
+
+  * Change markup of checkboxes and radios, and add variable size.
+
+  * Fix placeholder pseudo-class in recent versions of Firefox and IE 10.
+
+  * Fix vertical alignment of dropdown lists in Firefox.
+
+  * Drop support for Safari 4 (usage share below .03%).

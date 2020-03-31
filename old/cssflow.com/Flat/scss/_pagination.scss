@@ -1,0 +1,58 @@
+$paginationHeight: 34px;
+$paginationLinkHeight: 12px;
+$paginationLinkColor: #71737f;
+
+.pagination {
+  position: relative;
+  height: $paginationHeight;
+  line-height: $paginationLinkHeight;
+  padding: floor(($paginationHeight - $paginationLinkHeight) / 2) floor($paginationHeight * 1.4);
+  text-align: center;
+  background: #f2f4fa;
+  border-radius: 2px;
+  cursor: default;
+  @include box-sizing(border-box);
+  @include user-select(none);
+
+  > .button {
+    position: absolute;
+    top: 0;
+    width: $paginationHeight;
+    height: $paginationHeight;
+  }
+
+  > .button-prev {
+    left: 0;
+    border-radius: 2px 0 0 2px;
+  }
+
+  > .button-next {
+    right: 0;
+    border-radius: 0 2px 2px 0;
+  }
+}
+
+.pagination-link,
+.pagination-current {
+  display: inline-block;
+  vertical-align: top;
+  margin: 1px 2px;
+  width: $paginationLinkHeight - 2px;
+  height: $paginationLinkHeight - 2px;
+  font: 0/0 serif;
+  color: transparent;
+  background: darken($buttonDefaultColor, 6%);
+  border-radius: ceil($paginationLinkHeight / 2);
+}
+
+.pagination-link {
+  &:hover { background: darken($buttonDefaultColor, 12%); }
+}
+
+.pagination-current {
+  margin-top: 0;
+  margin-bottom: 0;
+  width: $paginationLinkHeight;
+  height: $paginationLinkHeight;
+  background: darken($buttonDefaultColor, 12%);
+}

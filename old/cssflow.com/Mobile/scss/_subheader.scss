@@ -1,0 +1,72 @@
+$subheaderHeight: 44px;
+
+.app.with-subheader { padding-top: $headerHeight + $subheaderHeight; }
+
+.subheader {
+  position: absolute;
+  z-index: 2;
+  top: $headerHeight;
+  width: 100%;
+  height: $subheaderHeight;
+  padding: 7px 6px;
+  background: #3e4549;
+  border-bottom: 1px solid black;
+  @include box-sizing(border-box);
+  @include user-select(none);
+  @include linear-gradient(top, #454d52, #363c40);
+  @include box-shadow(inset 0 1px rgba(white, .1), 0 0 3px rgba(black, .5));
+
+  &.two > .subheader-button { width: 50%; }
+  &.three > .subheader-button { width: 33.33%; }
+  &.four > .subheader-button { width: 25%; }
+}
+
+.subheader-button {
+  float: left;
+  height: $subheaderHeight - 15px;
+  line-height: $subheaderHeight - 17px;
+  font-size: $fontSize - 1px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-shadow: 0 -1px black;
+  background: #495054;
+  border: 1px solid;
+  border-color: #101010 #080808 black;
+  @include box-sizing(border-box);
+  @include linear-gradient(top, #4e5559, #383e43);
+  @include box-shadow(inset 0 1px rgba(white, .08),
+                      inset 0 0 0 1px rgba(white, .05),
+                      0 1px rgba(white, .08));
+
+  &:active, &.active {
+    color: #ccc;
+    background: #353a3f;
+    border-color: black;
+    @include linear-gradient(top, #272b2f, #373d42);
+    @include box-shadow(inset 0 1px 1px rgba(black, .1), 0 1px rgba(white, .08));
+  }
+
+  & + .subheader-button { border-left: 0; }
+  &:first-child { border-radius: 4px 0 0 4px; }
+  &:last-child { border-radius: 0 4px 4px 0; }
+}
+
+.subheader-counter {
+  display: inline-block;
+  position: relative;
+  top: -11px;
+  margin-right: -11px;
+  padding: 0 2px;
+  height: 15px;
+  min-width: 11px;
+  line-height: 14px;
+  font-size: $fontSize - 2px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 -1px rgba(black, .5);
+  background: #db3928;
+  border: 1px solid #55150f;
+  border-radius: 9px;
+  @include box-shadow(inset 0 0 0 1px rgba(white, .15), 0 1px 1px rgba(black, .1));
+}

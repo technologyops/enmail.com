@@ -1,0 +1,32 @@
+$tagHeight: 23px;
+
+.tag {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 3px;
+  padding: 0 floor($tagHeight * .4);
+  line-height: $tagHeight - 2px;
+  font-weight: 200;
+  color: #596581;
+  text-shadow: 0 1px rgba(white, .4);
+  background: #ccd8ee;
+  border: 1px solid;
+  border-color: #a5bade #9fb4d9 #94a9cf;
+  border-radius: ceil($tagHeight / 2);
+  @include linear-gradient(top, #dde7f5, #c1cfea);
+  @include box-shadow(inset 0 1px rgba(white, .1), 0 1px rgba(black, .03));
+}
+
+a.tag {
+  position: relative;
+  padding-right: $tagHeight - 2px;
+
+  &:after {
+    content: '\203a';
+    position: absolute;
+    top: round($tagHeight / 2) - 16px;
+    right: floor($tagHeight * .3);
+    font: bold 26px/1 Avenir, Arial, sans-serif;
+    color: #698ed0;
+  }
+}

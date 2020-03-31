@@ -1,0 +1,22 @@
+<!--
+  HTML fragment showing only the elements
+  relevant to your imagemap: img, map, area, and
+  /map. Copy and paste the entire map.../map block
+  into the body of your page. Copy and paste the provided
+  img element, OR set a usemap attribute as shown on your own
+  img element.
+-->
+
+<img src="presentation.jpg" usemap="#presentation" alt="" style="border-style:none" />
+
+<map id="presentation" name="presentation">
+<area shape="poly" alt="" coords="45,106,72,79,85,56,86,27,77,8,71,1,3,1,0,15,0,75,26,103" href="index.html" title="" />
+<area shape="poly" alt="" coords="153,208,196,162,196,130,193,111,175,94,154,87,132,87,119,96,106,110,100,120,100,135,99,156,101,169,122,196,139,205" href="aboutus.html" title="" />
+<area shape="poly" alt="" coords="0,214,33,195,71,210,89,245,77,284,52,313,41,320,30,320,7,299,1,290" href="album.html" title="" />
+<area shape="poly" alt="" coords="113,343,148,308,177,311,204,340,206,378,190,404,172,424,161,432,143,430,133,417,118,389,111,374" href="contactus.html" title="" />
+<area shape="poly" alt="" coords="1,456,31,420,71,425,95,448,97,488,82,515,53,544,42,544,10,516,0,481,0,448,30,420" href="greetings.html" title="" />
+<area shape="poly" alt="" coords="108,587,118,546,146,537,170,534,197,548,206,575,206,604,190,631,182,640,134,641,112,605" href="chennai.html" title="" />
+<area shape="circle" alt="" coords="317,338,87" href="album.html" title="" />
+<area shape="circle" alt="" coords="363,497,71" href="album.html" title="" />
+<area shape="default" nohref="nohref" alt="" />
+</map>

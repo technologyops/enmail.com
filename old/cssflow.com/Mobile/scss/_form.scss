@@ -1,0 +1,44 @@
+input, textarea, select, button, label {
+  margin: 0;
+  line-height: normal;
+  font-family: inherit;
+  font-size: 100%;
+  @include box-sizing(border-box);
+}
+
+fieldset {
+  padding: 10px;
+
+  > p { position: relative; }
+  > p + p { margin-top: 10px; }
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  padding: 0 4px;
+  line-height: $lineHeight;
+  font-size: $fontSize + 1px;
+  font-weight: bold;
+  color: $textColor;
+  text-shadow: 0 1px rgba(white, .4);
+  -webkit-tap-highlight-color: rgba(black, 0);
+}
+
+.hint {
+  display: block;
+  margin: 4px 4px 0;
+  color: lighten($textColor, 15%);
+  font-size: $fontSize - 1px;
+  text-shadow: 0 1px white;
+}
+
+::-webkit-input-placeholder { color: #aaa; }
+:-ms-input-placeholder { color: #aaa; }
+:-moz-placeholder { color: #aaa !important; }
+::-moz-placeholder { color: #aaa !important; opacity: 1; }
+
+::-moz-focus-inner {
+  padding: 0 !important;
+  border: 0 !important;
+}

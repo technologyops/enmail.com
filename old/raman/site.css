@@ -1,0 +1,64 @@
+body {
+ background: url(../photos/sample7.jpg);
+}
+
+body, tr {
+ margin: 0;
+ font: 12px Verdana,Tahoma,Arial,sans-serif;
+ line-height: 160%;
+}
+
+
+#left {
+ float: left;
+ width: 200px;
+height: 800px;
+ margin: 0;
+ padding: 1em;
+ background: #FFCCCC;
+}
+#left p { margin: 0 0 1em 0; }
+#left ul { margin-top: -5px; }
+#left li { margin-left: -23px; margin-bottom: 7px;}
+#left input {font-size: 12px;}
+#left fieldset {margin-bottom: 10px;}
+
+#right {
+margin-left: 225px;
+width: 475px;
+height: 400px;
+padding: .25em;
+}
+#rightd {
+border: 1px;
+text-align: center;
+color: grey;
+float: left;
+width: 75px;
+height: 200px;
+margin-top: -200px;
+margin-right: 1px;
+padding: .25em;
+}
+#right h2 { margin: 0 0 .5em 0; }
+
+.left {
+ float: left;
+ text-align: left;
+}
+.right {
+ float: right;
+ text-align: right;
+}
+
+h1, h2, h3 {
+ font-family: 'Trebuchet MS', Tahoma, Verdana, Sans-serif;
+ font-weight: Bolder;
+}
+
+h1 {
+ font-size: 16px;
+ color: #F15618;
+ background-color: inherit;
+ border-bottom: 1px solid #F0F0F0;
+}

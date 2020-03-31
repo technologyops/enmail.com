@@ -1,0 +1,42 @@
+$textInputHeight: 33px;
+$textInputLineHeight: 19px;
+
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=search],
+textarea {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 floor($textInputHeight * .25);
+  height: $textInputHeight;
+  line-height: $textInputLineHeight;
+  color: lighten($textColor, 15%);
+  background: white;
+  border: 2px solid #d9d9d9;
+  border-radius: 2px;
+
+  &:hover { border-color: #ccc; }
+
+  &:focus {
+    color: $textColor;
+    background: white;
+    border-color: $focusColor;
+    outline: none;
+  }
+}
+
+textarea {
+  padding: floor($textInputLineHeight * .25) floor($textInputHeight * .25);
+  height: $textInputLineHeight * 3 + floor($textInputLineHeight * .25) * 2 + 4px;
+  line-height: $textInputLineHeight;
+  overflow: auto;
+  resize: none;
+}
+
+:-moz-placeholder { color: #aaa !important; }
+::-moz-placeholder { color: #aaa !important; opacity: 1; }
+::-webkit-input-placeholder { color: #aaa; }
+:-ms-input-placeholder { color: #aaa; }
+
+.lt-ie9 input { line-height: $textInputHeight - 4px; }

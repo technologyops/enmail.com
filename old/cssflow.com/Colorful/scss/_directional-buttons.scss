@@ -1,0 +1,189 @@
+// Note: Sass doesn't have the math functions to make the arrow's size and
+// position a function of $buttonHeight. You'll have to adjust those manually
+// if you change $buttonHeight.
+
+%directional-button {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    z-index: -1;
+    width: 22px;
+    height: 22px;
+    background-color: inherit;
+    border: 1px solid;
+    border-color: inherit;
+  }
+
+  &.button:active {
+    @include box-shadow(inset 0 1px rgba(black, .05),
+                        0 1px rgba(white, .1));
+  }
+
+  &.button:active:before {
+    @include box-shadow(inset 0 1px rgba(black, .05),
+                        -1px 0 rgba(white, .1));
+  }
+}
+
+.button-left {
+  padding: 0 floor($buttonHeight * .4) 0 floor($buttonHeight * .25);
+  border-left-width: 0;
+  border-radius: 0 3px 3px 0;
+  @extend %directional-button;
+
+  &:before {
+    left: -11px;
+    border-radius: 2px 5px 0 5px;
+    @include transform(rotate(-45deg));
+  }
+}
+
+.button-right {
+  padding: 0 floor($buttonHeight * .25) 0 floor($buttonHeight * .4);
+  border-right-width: 0;
+  border-radius: 3px 0 0 3px;
+  @extend %directional-button;
+
+  &:before {
+    right: -11px;
+    border-radius: 5px 2px 5px 0;
+    @include transform(rotate(45deg));
+  }
+}
+
+.button {
+  &.button-left {
+    @include box-shadow(inset 0 1px white,
+                        inset 0 -1px rgba(white, .3),
+                        inset -1px 0 rgba(white, .3),
+                        0 1px rgba(black, .05));
+
+    &:before {
+      @include linear-gradient(top right, #fcfcfc, #e8e8e8);
+      @include box-shadow(inset 0 1px white,
+                          inset 1px 0 rgba(white, .3),
+                          -1px 0 rgba(black, .03));
+    }
+
+    &:active:before { @include linear-gradient(top right, #e8e8e8, #fafafa); }
+  }
+
+  &.button-right {
+    @include box-shadow(inset 0 1px white,
+                        inset 0 -1px rgba(white, .3),
+                        inset 1px 0 rgba(white, .3),
+                        0 1px rgba(black, .05));
+
+    &:before {
+      @include linear-gradient(top left, #fcfcfc, #e8e8e8);
+      @include box-shadow(inset 0 1px white,
+                          inset -1px 0 rgba(white, .3),
+                          1px 0 rgba(black, .03));
+    }
+
+    &:active:before { @include linear-gradient(top left, #e8e8e8, #fafafa); }
+  }
+}
+
+%colored-directional-button {
+  &.button-left {
+    @include box-shadow(inset 0 1px rgba(white, .25),
+                        inset 0 -1px rgba(white, .1),
+                        inset -1px 0 rgba(white, .1),
+                        0 1px rgba(black, .05));
+
+    &:before {
+      @include box-shadow(inset 0 1px rgba(white, .25),
+                          inset 1px 0 rgba(white, .1),
+                          -1px 0 rgba(black, .03));
+    }
+  }
+
+  &.button-right {
+    @include box-shadow(inset 0 1px rgba(white, .25),
+                        inset 0 -1px rgba(white, .1),
+                        inset 1px 0 rgba(white, .1),
+                        0 1px rgba(black, .05));
+
+    &:before {
+      @include box-shadow(inset 0 1px rgba(white, .25),
+                          inset -1px 0 rgba(white, .1),
+                          1px 0 rgba(black, .03));
+    }
+  }
+}
+
+.button-blue {
+  @extend %colored-directional-button;
+
+  &.button-left {
+    &:before { @include linear-gradient(top right, #33a0e8, #1b7aca); }
+    &:active:before { @include linear-gradient(top right, #2180ce, #33a0e8); }
+  }
+
+  &.button-right {
+    &:before { @include linear-gradient(top left, #33a0e8, #1b7aca); }
+    &:active:before { @include linear-gradient(top left, #2180ce, #33a0e8); }
+  }
+}
+
+.button-green {
+  @extend %colored-directional-button;
+
+  &.button-left {
+    &:before { @include linear-gradient(top right, #a0d44d, #72ba35); }
+    &:active:before { @include linear-gradient(top right, #75bd35, #a0d44d); }
+  }
+
+  &.button-right {
+    &:before { @include linear-gradient(top left, #a0d44d, #72ba35); }
+    &:active:before { @include linear-gradient(top left, #75bd35, #a0d44d); }
+  }
+}
+
+.button-red {
+  @extend %colored-directional-button;
+
+  &.button-left {
+    &:before { @include linear-gradient(top right, #fc4138, #ce3026); }
+    &:active:before { @include linear-gradient(top right, #cf3025, #fc4138); }
+  }
+
+  &.button-right {
+    &:before { @include linear-gradient(top left, #fc4138, #ce3026); }
+    &:active:before { @include linear-gradient(top left, #cf3025, #fc4138); }
+  }
+}
+
+// IE 8 doesn't support CSS transforms — revert to text arrows
+
+.lt-ie9 {
+  .button-left,
+  .button-right {
+    padding: 0 floor($buttonHeight * .4);
+    border-width: 1px;
+  }
+
+  .button-left:before,
+  .button-right:after {
+    display: inline;
+    position: static;
+    background: none;
+    border: 0;
+  }
+
+  .button-left:before {
+    content: '\2190';
+    margin-right: 8px;
+  }
+
+  .button-right:before { content: none; }
+
+  .button-right:after {
+    content: '\2192';
+    margin-left: 8px;
+  }
+}

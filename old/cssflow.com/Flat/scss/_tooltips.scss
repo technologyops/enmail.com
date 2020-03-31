@@ -1,0 +1,59 @@
+$tooltipBackground: #3c3c3c;
+$tooltipTipSize: 6px;
+
+.tooltip {
+  position: absolute;
+  z-index: 10;
+  padding: 6px 10px;
+  max-width: 200px;
+  line-height: $lineHeight - 1px;
+  font-size: $fontSize - 1px;
+  color: white;
+  text-align: center;
+  background: $tooltipBackground;
+  border-radius: 2px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: $tooltipTipSize solid transparent;
+  }
+}
+
+.tooltip-up {
+  &:before {
+    bottom: - $tooltipTipSize * 2;
+    left: 50%;
+    margin-left: - $tooltipTipSize;
+    border-top-color: $tooltipBackground;
+  }
+}
+
+.tooltip-down {
+  &:before {
+    top: - $tooltipTipSize * 2;
+    left: 50%;
+    margin-left: - $tooltipTipSize;
+    border-bottom-color: $tooltipBackground;
+  }
+}
+
+.tooltip-left {
+  &:before {
+    top: 50%;
+    left: - $tooltipTipSize * 2;
+    margin-top: - $tooltipTipSize;
+    border-right-color: $tooltipBackground;
+  }
+}
+
+.tooltip-right {
+  &:before {
+    top: 50%;
+    right: - $tooltipTipSize * 2;
+    margin-top: - $tooltipTipSize;
+    border-left-color: $tooltipBackground;
+  }
+}

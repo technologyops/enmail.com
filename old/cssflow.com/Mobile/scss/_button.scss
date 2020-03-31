@@ -1,0 +1,89 @@
+$buttonHeight: 29px;
+$blockButtonHeight: 39px;
+
+.button {
+  display: inline-block;
+  vertical-align: top;
+  height: $buttonHeight;
+  line-height: $buttonHeight - 2px;
+  padding: 0 floor($buttonHeight / 3);
+  font-size: $fontSize + 1px;
+  font-weight: bold;
+  color: $textColor;
+  text-align: center;
+  text-shadow: 0 1px white;
+  background: #e5e5e5;
+  background-clip: padding-box;
+  border: 1px solid;
+  border-color: #bdbdbd #b8b8b8 #999;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: antialiased;
+  @include box-sizing(border-box);
+  @include user-select(none);
+  @include linear-gradient(top, #f4f4f4, #ececec 50%, #e5e5e5 51%, #c6c6c6);
+  @include box-shadow(inset 0 1px rgba(white, .4), 0 1px 1px rgba(black, .1));
+
+  &:active {
+    background: #c6c6c6;
+    border-color: #959595 #aaa #bdbdbd;
+    @include linear-gradient(top, #c6c6c6, #f4f4f4);
+    @include box-shadow(inset 0 1px 2px rgba(black, .2), 0 1px white);
+  }
+
+  &.block {
+    display: block;
+    height: $blockButtonHeight;
+    line-height: $blockButtonHeight - 2px;
+    font-size: $fontSize + 2px;
+    text-transform: none;
+    border-radius: 5px;
+  }
+}
+
+%colored-button {
+  color: white;
+  text-shadow: 0 -1px rgba(black, .6);
+  @include box-shadow(inset 0 1px rgba(white, .3), 0 1px 1px rgba(black, .15));
+
+  &:active { @include box-shadow(inset 0 1px 2px rgba(black, .2), 0 1px white); }
+}
+
+.button.blue {
+  background: #2874e0;
+  border-color: #1c62c1 #144f9f #052f6a;
+  @extend %colored-button;
+  @include linear-gradient(top, #5aa8f9, #2d7df2 50%, #2874e0 51%, #175cc2);
+
+  &:active {
+    background: #175cc2;
+    border-color: #042d66 #05316f #013783;
+    @include linear-gradient(top, #175cc2, #2d7df2);
+  }
+}
+
+.button.green {
+  background: #31a538;
+  border-color: #1e8821 #1b7f20 #115a17;
+  @extend %colored-button;
+  @include linear-gradient(top, #65d46a, #45b24c 50%, #31a538 51%, #128f17);
+
+  &:active {
+    background: #128f17;
+    border-color: #0f5416 #12621a #14731f;
+    @include linear-gradient(top, #128f17, #45b24c);
+  }
+}
+
+.button.red {
+  background: #d42b22;
+  border-color: #a6241c #911c19 #6b1612;
+  @extend %colored-button;
+  @include linear-gradient(top, #f64038, #d44035 50%, #c9291f 51%, #ba2115);
+
+  &:active {
+    background: #ba2115;
+    border-color: #601412 #711713 #871a17;
+    @include linear-gradient(top, #ba2115, #d44035);
+  }
+}

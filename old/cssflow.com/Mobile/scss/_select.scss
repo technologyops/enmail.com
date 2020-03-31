@@ -1,0 +1,56 @@
+$selectHeight: 36px;
+
+.select-container {
+  /* Cover the dropdown arrow in non-WebKit browsers. */
+  &:before {
+    content: '';
+    position: absolute;
+    top: 1px;
+    bottom: 1px;
+    right: 1px;
+    width: $selectHeight;
+    background: white;
+    border-radius: 0 4px 4px 0;
+    pointer-events: none;
+    @include box-shadow(inset 0 1px rgba(black, .05));
+  }
+
+  &:after { // Arrow
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: floor($selectHeight / 2) - 4px;
+    margin-top: -4px;
+    width: 1px;
+    height: 0;
+    border: solid transparent;
+    border-width: 8px 5px 0;
+    border-top-color: #ccc;
+    pointer-events: none;
+  }
+}
+
+.select {
+  display: block;
+  width: 100%;
+  height: $selectHeight;
+  padding: floor(($selectHeight - 20px) / 2) floor($selectHeight * .3);
+  font-size: $fontSize + 1px;
+  color: lighten($textColor, 10%);
+  background: white;
+  border: 1px solid #ccc;
+  border-top-color: #c2c2c2;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  @include box-shadow(inset 0 1px rgba(black, .05), 0 1px rgba(white, .3));
+
+  /* Hide dropdown arrow in IE 10. */
+  &::-ms-expand { display: none; }
+
+  &:focus {
+    color: $textColor;
+    border-color: #539fee;
+    outline: none;
+    @include box-shadow(inset 0 1px rgba(black, .05), 0 0 0 1px #539fee);
+  }
+}

@@ -1,0 +1,66 @@
+%validation {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+
+  > input:focus {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.valid {
+  @extend %validation;
+
+  > input {
+    color: #35491e;
+    background: #e1fac9;
+    border-color: #91c753;
+
+    &:hover { border-color: #88bb50; }
+    &:focus { border-color: $focusColor; }
+  }
+
+  &:before { // Check mark
+    content: '';
+    position: absolute;
+    top: round($textInputHeight / 2) - 6px;
+    right: 10px;
+    width: 10px;
+    height: 4px;
+    border: solid #61a136;
+    border-width: 0 0 3px 3px;
+    @include transform(rotate(-45deg));
+  }
+}
+
+.invalid {
+  @extend %validation;
+
+  > input {
+    color: #5f2423;
+    background: #fbdbcf;
+    border-color: #f3746d;
+
+    &:hover { border-color: #e46b66; }
+    &:focus { border-color: $focusColor; }
+  }
+
+  &:before,
+  &:after { // X mark
+    content: '';
+    position: absolute;
+    top: round($textInputHeight / 2) - 7px;
+    right: 14px;
+    width: 3px;
+    height: 12px;
+    background: #e84c4a;
+    @include transform(rotate(45deg));
+  }
+
+  &:after { @include transform(rotate(-45deg)); }
+}
+
+ // IE 8 doesn't support CSS transforms — hide icons
+
+.lt-ie9 { .valid, .invalid { &:before, &:after { display: none; } } }

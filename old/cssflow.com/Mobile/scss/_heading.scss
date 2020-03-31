@@ -1,0 +1,27 @@
+$headingHeight: 25px;
+
+.heading {
+  padding: 0 10px;
+  line-height: $headingHeight;
+  font-size: $fontSize;
+  font-weight: bold;
+  color: $textColor;
+  text-shadow: 0 1px white;
+  background: #f8f8f8;
+  border-top: 1px solid #c8c8c8;
+  border-bottom: 1px solid #bbb;
+  @include linear-gradient(top, #fcfcfc, #e4e4e4);
+  @include box-shadow(inset 0 1px white, 0 1px rgba(black, .04));
+
+  &:first-child { border-top: 0; }
+
+  &.dark {
+    color: #dde8ec;
+    text-shadow: 0 1px rgba(black, .6);
+    background: #46525f;
+    border-top-color: #3d4957;
+    border-bottom-color: black;
+    @include linear-gradient(top, #62707f, #394450);
+    @include box-shadow(inset 0 1px rgba(white, .15), 0 1px rgba(black, .05));
+  }
+}

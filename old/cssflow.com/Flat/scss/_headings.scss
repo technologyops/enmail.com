@@ -1,0 +1,36 @@
+$headingHeight: 35px;
+$headingColor: #d7ebf8;
+
+.heading {
+  overflow: hidden;
+  line-height: $headingHeight;
+  padding: 0 floor($headingHeight * .4);
+  text-shadow: 0 1px rgba(white, .3);
+  background: $headingColor;
+  border-radius: 2px;
+
+  > h2 {
+    float: left;
+    font-size: $fontSize + 1px;
+    font-weight: bold;
+  }
+}
+
+.heading-links {
+  float: right;
+  margin: 0 -#{floor($headingHeight * .4)} 0 floor($headingHeight * .4);
+
+  > li { float: left; }
+}
+
+.heading-link {
+  display: block;
+  padding: 0 floor($headingHeight * .35);
+
+  &:hover {
+    text-decoration: none;
+    background: darken($headingColor, 4%);
+  }
+
+  li:last-child > & { border-radius: 0 2px 2px 0; }
+}

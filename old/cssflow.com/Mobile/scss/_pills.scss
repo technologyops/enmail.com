@@ -1,0 +1,74 @@
+$pillsHeight: 21px;
+$pillsArrowSize: 7px;
+
+.pills {
+  height: $pillsHeight;
+  line-height: $pillsHeight;
+  padding: 11px 0 13px;
+  text-align: center;
+  background: $rowBackground;
+  border-bottom: 1px solid darken($bodyBackground, 15%);
+  @include box-shadow(inset 0 1px rgba(white, .6), 0 1px rgba(white, .6));
+}
+
+.pill {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 5px;
+
+  > a {
+    display: block;
+    padding: 0 floor($pillsHeight * .6);
+    color: lighten($textColor, 5%);
+    text-shadow: 0 1px white;
+    border: 1px solid transparent;
+    border-radius: ceil($pillsHeight / 2);
+  }
+
+  &:before, &:after, > a:after {
+    display: none;
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: -$pillsArrowSize;
+    width: 0;
+    height: 0;
+    border: solid transparent;
+    border-width: 0 $pillsArrowSize $pillsArrowSize;
+  }
+
+  &:before { // Border
+    bottom: -11px;
+    border-bottom-color: darken($bodyBackground, 18%);
+  }
+
+  > a:after { // Shadow
+    bottom: -12px;
+    border-bottom-color: darken($bodyBackground, 5%);
+  }
+
+  &:after { // Background
+    bottom: -13px;
+    border-bottom-color: $bodyBackground;
+  }
+
+  &.active {
+    &:before, &:after, > a:after { display: block; }
+
+    > a {
+      color: darken($textColor, 5%);
+      text-shadow: 0 1px rgba(white, .6);
+      background: darken($bodyBackground, 3%);
+      border-color: darken($bodyBackground, 25%) darken($bodyBackground, 20%) darken($bodyBackground, 15%);
+      @include box-shadow(inset 0 1px 1px rgba(black, .15), 0 1px white);
+    }
+  }
+}
+
+.pills-content {
+  padding: 10px;
+  background: $bodyBackground;
+  border-bottom: 1px solid darken($bodyBackground, 10%);
+  @include box-shadow(inset 0 1px darken($bodyBackground, 3%), 0 1px rgba(white, .6));
+}

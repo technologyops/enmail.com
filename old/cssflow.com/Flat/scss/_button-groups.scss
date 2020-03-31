@@ -1,0 +1,37 @@
+$buttonGroupHeight: 31px;
+
+.button-group {
+  display: inline-block;
+  vertical-align: top;
+  height: $buttonGroupHeight;
+  font-size: 0;
+  white-space: nowrap;
+
+  > .button {
+    position: relative;
+    height: auto;
+    line-height: $buttonGroupHeight;
+    padding: 0 floor($buttonGroupHeight / 2);
+    border-radius: 0;
+
+    &.active {
+      z-index: 1;
+      top: -4px;
+      line-height: $buttonGroupHeight + 4px;
+      padding: 0 floor($buttonGroupHeight / 2) + 2px;
+      font-weight: bold;
+      border: 2px solid white;
+      border-radius: 4px;
+    }
+
+    &:first-child {
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+$breadcrumbsHeight: 33px;
+$breadcrumbsColor: #d7ebf8;
+
+.breadcrumbs {
+  overflow: hidden;
+  line-height: $breadcrumbsHeight;
+  text-shadow: 0 1px rgba(white, .3);
+  background: $breadcrumbsColor;
+  border-radius: 2px;
+
+  > li {
+    float: left;
+  }
+
+  .current {
+    padding: 0 floor($breadcrumbsHeight * .4) 0 $breadcrumbsHeight;
+    font-weight: bold;
+    color: $textColor;
+
+    &:hover { background: none; }
+  }
+}
+
+.breadcrumb {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  padding: 0 floor($breadcrumbsHeight * .3) 0 $breadcrumbsHeight;
+
+  &:hover {
+    text-decoration: none;
+    background: darken($breadcrumbsColor, 4%);
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: - floor($breadcrumbsHeight / 2);
+    left: - floor($breadcrumbsHeight / 2) + 3px;
+    width: 0;
+    height: 0;
+    border: $breadcrumbsHeight outset transparent;
+    border-left: $breadcrumbsHeight solid white;
+    pointer-events: none;
+  }
+
+  &:after {
+    left: - floor($breadcrumbsHeight / 2);
+    border-left-color: $breadcrumbsColor;
+  }
+
+  li:hover + li > & {
+    &:before {
+      border-top: $breadcrumbsHeight solid $breadcrumbsColor;
+      border-bottom: $breadcrumbsHeight solid $breadcrumbsColor;
+    }
+
+    &:after { border-left-color: darken($breadcrumbsColor, 4%); }
+  }
+
+  li:first-child > & {
+    padding-left: floor($breadcrumbsHeight * .4);
+
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
+}

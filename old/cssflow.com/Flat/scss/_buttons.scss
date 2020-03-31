@@ -1,0 +1,60 @@
+$buttonHeight: 33px;
+$buttonDefaultColor: #e5e7ed;
+$buttonColors: blue      #00acee,
+               green     #4ebd4a,
+               red       #ee4f3d,
+               purple    #9464e2,
+               orange    #faa226,
+               dark-blue #3061a3,
+               black     #3c3c3c;
+
+.button {
+  display: inline-block;
+  vertical-align: top;
+  height: $buttonHeight;
+  line-height: 1;
+  padding: 0 floor($buttonHeight / 2);
+  font-size: $fontSize;
+  color: #243140;
+  text-align: center;
+  text-shadow: 0 1px rgba(white, .2);
+  background: $buttonDefaultColor;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  @include box-sizing(border-box);
+
+  &:hover {
+    color: #243140;
+    background: darken($buttonDefaultColor, 3%);
+  }
+
+  &:active, &.active {
+    color: #1d2938;
+    background: darken($buttonDefaultColor, 8%);
+  }
+}
+
+a.button {
+  line-height: $buttonHeight;
+  text-decoration: none;
+}
+
+@each $pair in $buttonColors {
+  .button-#{nth($pair, 1)} {
+    $color: nth($pair, 2);
+    color: white;
+    text-shadow: 0 1px rgba(black, .08);
+    background: $color;
+
+    &:hover {
+      color: white;
+      background: lighten($color, 8%);
+    }
+
+    &:active, &.active {
+      color: white;
+      background: darken($color, 10%);
+    }
+  }
+}

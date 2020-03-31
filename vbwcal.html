@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>video bandwidth/storage calculator</title>
+</head>
+<body>
+  <div id="frm"></div>
+<script>
+var avg_jpeg_frame_size_kb = [
+ [15,40,100,70,125,150,300],
+ [30,80,170,120,210,250,500],
+ [60,120,250,180,320,400,900]];
+/* H.264 is about 20% of JPEG - so div_frame_size/5 */
+
+var compression = ['JPEG', 'H.264'];
+var quality = ['Low', 'Medium', 'High'];
+var resolution = ['D1 (704x480)', '720P', '1080P', '1.3 MP', '3 MP', '5 MP', '10 MP'];
+var hours_of_motion_per_day = '';
+var number_of_days_of_recording = '';
+
+function get_id_elements() {
+  var r = {}
+  var a = document.getElementsByTagName("*");
+  for (var i=a.length;i--;) {
+    if (a[i].id) { r[a[i].id] = a[i]; };
+  };
+  return r;
+};
+
+window.onload=function() {
+  function html_select(a,id) {
+    var r = ['<select id="'+id+'">'];
+    for (i=0;i<a.length;i++) {
+      r.push('<option value="'+i+'">'+a[i]+'</option>');
+    };
+    r.push('</select><br/>');
+    return r.join('');
+  };
+  var frm = ['<h1>Video Bandwidth/Storage Calculator</h1><label>Compression:</label>',
+             html_select(compression, "compression"),
+             '<label>Quality:</label>',
+             html_select(quality, "quality"),
+             '<label>Resolution:</label>',
+             html_select(resolution, "resolution"),
+             '<label>FPS:</label><input id="fps" value="5" size="2"><br/><label>Hours of movement/day:</label><input id="hours" value="12" size="2"><br/><button id="btn">Update</button><br/><p id="status"></p>'];
+  document.getElementById('frm').innerHTML = frm.join('');
+  el = get_id_elements();
+  el.btn.onclick = function(evt) {
+    var bandwidth = avg_jpeg_frame_size_kb[parseInt(el.quality.value)][parseInt(el.resolution.value)] * parseInt(el.fps.value);
+    if ('1' == el.compression.value) bandwidth = bandwidth / 5;
+    var storage = bandwidth * 3600 * parseInt(el.hours.value);
+    el.status.innerHTML = 'Bandwidth: ' + (bandwidth*8) + ' Kb/s<br/>Storage: ' + (storage/1000) + ' MB/day';
+  };
+  el.btn.onclick.apply(el.btn);
+};
+</script>
+</body>
+</html>

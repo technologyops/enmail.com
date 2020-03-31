@@ -1,0 +1,106 @@
+$switchWidth: 60px;
+$switchHeight: 22px;
+
+.switch {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: $switchWidth;
+  height: $switchHeight;
+  margin: 0;
+  padding: 0;
+  @include user-select(none);
+}
+
+.switch-handle {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: $switchWidth;
+  height: $switchHeight;
+  line-height: $switchHeight - 2px;
+  font-size: $fontSize - 2px;
+  font-weight: bold;
+  color: #aaa;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 1px white;
+  background: #fcfcfc;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border-top-color: #c2c2c2;
+  border-radius: 3px;
+  @include box-sizing(border-box);
+  @include box-shadow(inset 0 1px 1px rgba(black, .1),
+                      inset 0 floor($switchHeight / 2) rgba(black, .05),
+                      0 1px rgba(white, .5));
+  @include transition(padding .2s ease-out);
+
+  &:before { // Knob
+    content: '';
+    display: block;
+    width: $switchHeight + 2px;
+    height: $switchHeight - 2px;
+    background: #f2f2f2;
+    border-radius: 2px;
+    @include linear-gradient(top, #fcfcfc, #e4e4e4);
+    @include box-shadow(inset 0 0 0 1px rgba(white, .3),
+                        0 0 0 1px #ccc,
+                        2px 1px 2px rgba(black, .1));
+  }
+
+  &:after { // Label
+    content: attr(data-off);
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: $switchWidth - $switchHeight - 5px;
+  }
+
+  .switch-input:checked + & {
+    padding-left: $switchWidth - $switchHeight - 4px;
+    color: white;
+    text-shadow: 0 -1px rgba(black, .3);
+    background: #4A99F6;
+    border-color: #1c62bc #226fdb #2a80f1;
+    @include linear-gradient(top, #2d7df2, #5eacf9);
+
+    &:before {
+      @include box-shadow(inset 0 0 0 1px rgba(white, .3),
+                          0 0 0 1px #226fdb,
+                          -2px 1px 2px rgba(black, .1));
+    }
+
+    &:after {
+      content: attr(data-on);
+      left: 0;
+      right: auto;
+    }
+  }
+
+  &[data-on="I"] { font-size: $fontSize - 1px; }
+}
+
+.switch-input {
+  position: absolute;
+  z-index: 2;
+  width: $switchWidth;
+  height: $switchHeight;
+  opacity: 0;
+}
+
+.round {
+  > .switch-handle {
+    border-radius: ceil($switchHeight / 2);
+
+    &:before {
+      width: $switchHeight - 2px;
+      border-radius: ceil($switchHeight / 2) - 1px;
+    }
+
+    &:after { width: $switchWidth - $switchHeight; }
+  }
+
+  > .switch-input:checked + .switch-handle { padding-left: $switchWidth - $switchHeight; }
+}
+

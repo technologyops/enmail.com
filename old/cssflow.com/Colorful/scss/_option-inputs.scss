@@ -1,0 +1,91 @@
+$optionInputSize: 16px; // Keep even
+$optionInputColor: #9b9795;
+
+.option {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: $optionInputSize;
+  height: $optionInputSize;
+  @include user-select(none);
+
+  > input {
+    position: absolute;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+  }
+}
+
+%option-box {
+  display: block;
+  height: 100%;
+  background: #f8f8f8;
+  border: 1px solid #c6c6c6;
+  border-top-color: #bbb;
+  border-radius: 2px;
+  @include box-sizing(border-box);
+  @include box-shadow(inset 0 1px 1px rgba(black, .06),
+                      0 1px rgba(white, .4));
+
+  &:before {
+    content: '';
+    display: none;
+  }
+
+  input:focus + &,
+  input.focus + & {
+    border-color: $focusColor;
+    @include box-shadow(inset 0 0 2px rgba($focusColor, .8),
+                        0 0 3px rgba($focusColor, .8));
+  }
+
+  input:checked + & { background: white; }
+  input:checked + &:before { display: block; }
+}
+
+.checkbox {
+  @extend %option-box;
+
+  &:before {
+    $width: round(($optionInputSize - 2px) / 2); // 50% of input inner width
+    $height: round($width * .4);
+    position: absolute;
+    top: floor(($optionInputSize - $height * 2 - 2px) / 2);
+    left: floor(($optionInputSize - $width - 2px) / 2);
+    width: $width;
+    height: $height;
+    border: solid $optionInputColor;
+    border-width: 0 0 3px 3px;
+    @include transform(rotate(-45deg));
+  }
+}
+
+.radio {
+  border-radius: ceil($optionInputSize / 2);
+  @extend %option-box;
+
+  &:before {
+    $size: round(round(($optionInputSize - 2px) * .4) / 2) * 2; // 40% of input inner width & force even number
+    margin: (($optionInputSize - $size - 2px) / 2);
+    width: $size;
+    height: $size;
+    background: $optionInputColor;
+    border-radius: ceil($size / 2);
+  }
+}
+
+// IE 8 doesn't support the :checked selector — revert to native inputs
+
+.lt-ie9 {
+  .option > input {
+    position: static;
+    padding: 0;
+  }
+
+  .checkbox,
+  .radio {
+    display: none;
+  }
+}

@@ -1,0 +1,105 @@
+$menuLinkHeight: 43px;
+$menuBottomHeight: 39px;
+
+.menu {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  text-shadow: 0 1px black;
+  background: #2c343d;
+  @include box-sizing(border-box);
+
+  ~ .app {
+    margin-left: 80%;
+
+    > .header { border-radius: 4px 0 0 0; }
+    > .footer, .footer-link:first-child { border-radius: 0 0 0 4px; }
+  }
+
+  &:after { // Shadow
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 20%;
+    border-radius: 4px 0 0 4px;
+    @include box-shadow(0 0 20px rgba(black, .7));
+  }
+}
+
+.menu-list {
+  display: block;
+  height: 100%;
+  padding-bottom: 39px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  @include box-sizing(border-box);
+}
+
+.menu-link {
+  display: block;
+  height: $menuLinkHeight;
+  line-height: $menuLinkHeight - 1px;
+  padding: 0 floor($menuLinkHeight / 3);
+  font-size: $fontSize + 2px;
+  font-weight: bold;
+  color: white;
+  border-bottom: 1px solid #111;
+  @include box-shadow(0 1px rgba(white, .07));
+
+  &:active, &.active {
+    background: #1c2127;
+    border-color: black;
+    @include linear-gradient(top, #1a1e24, #1f262c);
+    @include box-shadow(0 -1px black, 0 1px rgba(white, .07));
+  }
+}
+
+.menu-sep {
+  padding: 0 floor($menuLinkHeight / 3);
+  line-height: 31px;
+  font-size: $fontSize;
+  font-weight: bold;
+  color: #b5c3ce;
+  text-transform: uppercase;
+  background: #1d242a;
+  border-bottom: 1px solid black;
+  @include linear-gradient(top, #323b45, #1d242a);
+  @include box-shadow(inset 0 1px rgba(white, .1), 0 1px rgba(black, .02));
+}
+
+.menu-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $menuBottomHeight - 1px;
+  background: #212732;
+  border-top: 1px solid black;
+  @include linear-gradient(top, #4a586a, #353e4c 50%, #2d3544 51%, #20262e);
+  @include box-shadow(0 0 3px rgba(black, .2));
+
+  > li {
+    float: left;
+    width: 40%;
+    @include box-sizing(border-box);
+  }
+
+  > li + li {
+    border-left: 1px solid black;
+    @include box-shadow(inset 1px 0 rgba(white, .08));
+  }
+}
+
+.menu-bottom-link {
+  display: block;
+  height: $menuBottomHeight - 1px;
+  line-height: $menuBottomHeight - 3px;
+  font-weight: bold;
+  color: #b4ccee;
+  text-align: center;
+  @include box-shadow(inset 0 1px rgba(white, .1));
+}

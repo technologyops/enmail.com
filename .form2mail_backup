@@ -1,0 +1,10 @@
+# comment lines and empty lines are ignored
+# leading/trailing spaces are ignored
+
+    smtpsvr: mail.enmail.com
+   authuser: techops@enmail.com
+   authpass: enkey
+     rcptto: karthik@enmail.com
+    subject: webform submission
+redirecturl: http://enmail.com/
+

@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<script type="text/javascript" src="kgln_gen.js"></script>
+<script type="text/javascript">
+function validate()	{
+if(document.contact_us.name.value=="")	{
+alert("Enter Name");
+document.contact_us.name.focus();
+return false;
+}
+
+if(document.contact_us.email.value=="")	{
+alert("Enter Email");
+document.contact_us.email.focus();
+return false;
+}
+
+var email_chk = document.contact_us.email.value;
+if (echeck(email_chk) == false)	{
+document.contact_us.email.value = "";
+document.contact_us.email.focus();
+return false;
+}
+
+if(document.contact_us.mobile.value=="")	{
+alert("Enter Mobile");
+document.contact_us.mobile.focus();
+return false;
+}
+
+var mob_chk = document.contact_us.mobile.value;
+if (isNumber(mob_chk) == false )	{
+alert("Mobile Number Should be Numeric");
+document.contact_us.mobile.value = "";
+document.contact_us.mobile.focus();
+return false;
+}
+
+return true;
+
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>TEXLA - Home - Work</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="body_background">
+
+<!-- Main Container -->
+<div id="main_cntr">
+
+<!-- Container for Logo -->
+<div id="logo_cnt">
+<img src="images/logo.jpg" width="239" height="97" align="right" class="logo_padding"/></div>
+
+<!-- Menu Container -->
+<div style="float:left; width:1000px; height:30px; background:#000000;">
+<link rel="stylesheet" type="text/css" href="chrometheme/chromestyle.css" />
+<script type="text/javascript" src="chromejs/chrome.js"></script>
+
+<link href="styles.css" rel="stylesheet" type="text/css">
+<div class="menu_font" style="float:left;" align="left">
+<div class="chromestyle" id="chromemenu" style="width:1000px;">
+<ul>
+<li><a href="index.html" style="border-right:1px solid #FFFFFF;">About Us&nbsp;&nbsp;&nbsp;</a></li>
+<li><a href="contact_us.html">Contact Us</a></li>	
+</ul>
+</div>
+</div>
+<script type="text/javascript">
+cssdropdown.startchrome("chromemenu")
+</script>
+
+</div>
+<!-- Menu Ends -->
+
+<!-- Container for Slide Image -->
+<div id="slide_cnt1">&nbsp;</div>
+<!-- Main Image Container Ends -->
+
+<!-- Body Container -->
+<div id="body_container">
+
+<p class="body_headers">Contact Us :</p>
+
+<table width="100%">
+<tr>
+<td width="53%">
+
+<form name="contact_us" method="post">
+<table width="97%" class="body_font">
+  <tr>
+    <td colspan="4">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="29">&nbsp;</td>
+    <td height="29">Name <font color="#FF0000">*</font></td>
+    <td height="29"><strong>:</strong></td>
+    <td height="29"><input type="text" name="name" class="text_box"/></td>
+  </tr>
+  <tr>
+    <td height="29">&nbsp;</td>
+    <td height="29"> Email ID <font color="#FF0000">*</font> </td>
+    <td height="29"><strong>:</strong></td>
+    <td height="29"><input type="text" name="email" class="text_box"/></td>
+  </tr>
+  <tr>
+    <td height="29">&nbsp;</td>
+    <td height="29"> Phone Number <font color="#FF0000">*</font></td>
+    <td height="29"><strong>:</strong></td>
+    <td height="29"><input type="text" name="phone" class="text_box"/></td>
+  </tr>
+  <tr>
+    <td height="29">&nbsp;</td>
+    <td height="29"> Mobile Number </td>
+    <td height="29"><strong>:</strong></td>
+    <td height="29"><input type="text" name="mobile" class="text_box"/></td>
+  </tr>
+  <tr>
+    <td height="84">&nbsp;</td>
+    <td height="84"> Address </td>
+    <td height="84"><strong>:</strong></td>
+    <td height="84"><textarea class="text_area" name="address"></textarea></td>
+  </tr>
+  <tr>
+    <td height="79">&nbsp;</td>
+    <td height="79"> Comments </td>
+    <td height="79"><strong>:</strong></td>
+    <td height="79"><textarea class="text_area" name="comments"></textarea></td>
+  </tr>
+  <tr>
+    <td height="48">&nbsp;</td>
+    <td height="48">&nbsp;</td>
+    <td height="48">&nbsp;</td>
+    <td height="48" valign="bottom"><input type="submit" name="Submit" class="submit_button" onclick="return validate();"/></td>
+  </tr>
+  <tr>
+    <td width="3%" height="32">&nbsp;</td>
+    <td width="31%" height="32">&nbsp;</td>
+    <td width="8%" height="32">&nbsp;</td>
+    <td width="58%" height="32">&nbsp;</td>
+  </tr>
+</table>
+</form>
+
+</td>
+<td width="47%" valign="top">
+<table width="100%">
+<tr>
+<td class="body_headers">Office Address: </td>
+</tr>
+<tr>
+  <td height="179" class="body_font" valign="top">
+  <p>
+  <strong>TEXLA B-Technologies Private Limited</strong><br />
+  # 9 Jus' Trufs, Jakkur Road,<br />
+  Jakkur.<br />
+  Bangalore 560 064.<br />
+  Karnataka, India<br />
+  <br />
+M M Dayanand (Mob): +91 9902043334<br />
+Manu Patel        (Mob): +91 9880065307<br />
+<br />
+Telefax: +91 80 23624324<br />
+Email: <A href="mailto:texla@danddeli.com" title="mailto:texla@danddeli.com">texla@danddeli.com</A><br />
+Website: www.texla.co
+
+  </p>
+  
+  </td>
+</tr>
+</table>
+
+
+</td>
+</tr>
+</table>
+
+
+</div>
+<div id="bottom_container">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<div id="bottom_container" class="body_font">
+© 2012 TEXLA </div>
+</div>
+<!-- Body Container Ends -->
+
+<!-- Bottom Container -->
+<!-- Bottom Ends -->
+
+<!-- Main Container Ends -->
+</div>
+
+
+</body>
+</html>

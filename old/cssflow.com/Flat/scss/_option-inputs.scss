@@ -1,0 +1,100 @@
+$optionInputSize: 18px; // Keep even
+$optionInputMarkColor: #aaa;
+
+.option {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: $optionInputSize;
+  height: $optionInputSize;
+  @include user-select(none);
+
+  > input {
+    position: absolute;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+  }
+}
+
+%option-box {
+  display: block;
+  height: 100%;
+  background: white;
+  border: 2px solid #d9d9d9;
+  border-radius: 2px;
+  @include box-sizing(border-box);
+
+  &:before {
+    content: '';
+    display: none;
+  }
+
+  input:hover + &,
+  &:hover {
+    border-color: #ccc;
+  }
+
+  input:focus + &,
+  input.focus + & {
+    border-color: $focusColor;
+  }
+
+  input:checked + &:before { display: block; }
+}
+
+.checkbox {
+  @extend %option-box;
+
+  &:before {
+    $width: round(($optionInputSize - 4px) / 2); // 50% of input inner width
+    $height: round($width * .4);
+    position: absolute;
+    top: floor(($optionInputSize - $height * 2 - 2px) / 2);
+    left: floor(($optionInputSize - $width - 2px) / 2);
+    width: $width;
+    height: $height;
+    border: solid $optionInputMarkColor;
+    border-width: 0 0 3px 3px;
+    @include transform(rotate(-45deg));
+
+    input:focus + &,
+    input.focus + & {
+      border-color: darken($focusColor, 8%);
+    }
+  }
+}
+
+.radio {
+  border-radius: ceil($optionInputSize / 2);
+  @extend %option-box;
+
+  &:before {
+    $size: round(round(($optionInputSize - 4px) * .4) / 2) * 2; // 40% of input inner width & force even number
+    margin: (($optionInputSize - $size - 4px) / 2);
+    width: $size;
+    height: $size;
+    background: $optionInputMarkColor;
+    border-radius: ceil($size / 2);
+
+    input:focus + &,
+    input.focus + & {
+      background: darken($focusColor, 8%);
+    }
+  }
+}
+
+// IE 8 doesn't support the :checked selector — revert to native inputs
+
+.lt-ie9 {
+  .option > input {
+    position: static;
+    padding: 0;
+  }
+
+  .checkbox,
+  .radio {
+    display: none;
+  }
+}

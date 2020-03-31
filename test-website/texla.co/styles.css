@@ -1,0 +1,97 @@
+/* CSS Document */
+
+/* Containers */
+
+#main_cntr	{
+overflow:hidden; position:absolute; width:1003px; float:left;
+}
+
+#logo_cnt	{
+width:993px;height:110px;float:left;background:#FFFFFF; padding-right:6px; position:relative;
+}
+
+#slide_cnt	{
+width:1000px;height:364px;float:left;background:url(images/slides/slide_final.jpg);position:relative;
+}
+
+#slide_cnt1	{
+width:1000px;height:364px;float:left;background:url(images/slides/slide_final.jpg) no-repeat;position:relative;
+}
+
+#body_cnt	{
+float:left; text-align:left; width:1000px; position:relative; background:#FFFFFF; overflow:hidden;position:relative;
+}
+
+#body_container	{
+background:#FFFFFF; float:left; width:1004px; height:auto;position:relative; padding-left:15px;padding-right:25px;
+}
+
+#bottom_container	{
+float:left; width:1000px; position:relative; height:30px; text-align:center; padding-top:8px;padding-bottom:8px;
+}
+
+/* Fonts */
+
+.body_background	{
+background:url(images/line_bg.jpg) repeat;
+}
+
+.body_font	{
+font-family:Arial, Helvetica, sans-serif;font-size:14px;color:#333333;
+}
+
+.logo_padding	{
+padding-right:10px;padding-top:10px;
+}
+
+.menu_font	{
+font-family:Arial, Helvetica, sans-serif;font-size:17px;color:#080904; font-weight:bold;
+}
+
+.body_headers	{
+font-family:Arial, Helvetica, sans-serif;font-size:17px;color:#080904; font-weight:bold;padding-left:4px;
+}
+
+.ul_padding	{
+padding-top:5px;
+}
+
+.body_font_blue_italic	{
+font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#0099FF; font-weight:bold;
+}
+
+.page_under_construction	{
+font-family: Arial, Helvetica, sans-serif; font-size:17px; color:#0099FF; font-weight:bold; text-align:center;
+}
+
+.text_box	{
+width:200px;font-family:tahoma;color:#000000;font-size:12px;
+}
+
+.text_area	{
+width:200px; height:67px;font-family:Arial, Helvetica, sans-serif;color:#000000;font-size:12px;
+}
+
+.submit_button	{
+border:1px solid #000000; background:#CCCCCC; cursor:pointer; width:90px; height:30px;
+}
+
+.receive_mail	{
+font-family:Arial, Helvetica, sans-serif; color:#0099FF; font-size:14px; font-weight:bold; background:#E6E6E6; padding-left:8px;
+}
+
+.receive_mail_table_border	{
+border:1px solid #CCCCCC;font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#333333;
+}
+
+.mail_not_sent	{
+font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; border:1px solid #FFAEB0; background:#FFE6E7;
+}
+
+.padding_left	{
+padding-left:17px;
+}
+
+.mail_sent	{
+font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; border:1px solid #C1FDB0; background:#EEFFEC;
+}

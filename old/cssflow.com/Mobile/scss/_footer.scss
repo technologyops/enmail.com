@@ -1,0 +1,111 @@
+$footerHeight: 49px;
+
+.footer {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  width: 100%;
+  height: $footerHeight - 1px;
+  background: #3b454e;
+  border-top: 1px solid black;
+  @include user-select(none);
+  @include linear-gradient(top, #4c5762, #2a3239);
+}
+
+.footer-link {
+  position: relative;
+  float: left;
+  width: 25%;
+  height: 100%;
+  line-height: 12px;
+  font-size: $fontSize - 1px;
+  font-weight: bold;
+  color: #ccc;
+  text-align: center;
+  text-shadow: 0 1px 1px black;
+  border-left: 1px solid black;
+  @include box-sizing(border-box);
+  @include box-shadow(inset 0 1px rgba(white, .15),
+                      inset 1px 0 rgba(white, .08),
+                      inset -1px 0 rgba(white, .08));
+
+  &:first-child { border-left: 0; }
+
+  &.active {
+    color: #eee;
+    background: #2d343d;
+    @include linear-gradient(top, #2b323a, #424c57);
+    @include box-shadow(inset 0 1px rgba(white, .2));
+  }
+}
+
+.footer-counter {
+  position: absolute;
+  top: 2px;
+  right: 3px;
+  padding: 0 2px;
+  height: 15px;
+  min-width: 11px;
+  line-height: 14px;
+  font-size: $fontSize - 2px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 -1px rgba(black, .5);
+  background: #db3928;
+  border: 1px solid #55150f;
+  border-radius: 9px;
+  @include box-shadow(inset 0 0 0 1px rgba(white, .15), 0 1px 1px rgba(black, .1));
+}
+
+/* Note: the following CSS icons are placeholders; replace with real icons. */
+
+.icon-home {
+  display: block;
+  margin: 8px auto;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #9fb4c6;
+  border-radius: 4px;
+  @include box-shadow(0 1px black);
+
+  .active > & { border-color: #bbd6ee; }
+}
+
+.icon-more {
+  display: block;
+  margin: 12px auto 13px;
+  width: 7px;
+  height: 7px;
+  background: #9fb4c6;
+  border-radius: 4px;
+  @include box-shadow(0 1px black, 10px 0 #9fb4c6, 10px 1px black, -10px 0 #9fb4c6, -10px 1px black);
+
+  .active > & {
+    background: #bbd6ee;
+    @include box-shadow(0 1px black, 10px 0 #bbd6ee, 10px 1px black, -10px 0 #bbd6ee, -10px 1px black);
+  }
+}
+
+.icon-square {
+  display: block;
+  margin: 10px auto;
+  width: 12px;
+  height: 12px;
+  background: #9fb4c6;
+  border-radius: 1px;
+  @include box-shadow(0 1px black);
+
+  .active > & { background: #bbd6ee; }
+}
+
+.icon-circle {
+  display: block;
+  margin: 10px auto;
+  width: 12px;
+  height: 12px;
+  background: #9fb4c6;
+  border-radius: 6px;
+  @include box-shadow(0 1px black);
+
+  .active > & { background: #bbd6ee; }
+}

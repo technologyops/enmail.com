@@ -1,0 +1,69 @@
+$buttonHeight: 32px;
+
+.button {
+  display: inline-block;
+  vertical-align: top;
+  height: $buttonHeight;
+  line-height: 1;
+  padding: 0 floor($buttonHeight * .4);
+  font-size: $fontSize;
+  color: #555;
+  text-align: center;
+  text-shadow: 0 1px rgba(white, .8);
+  background: #f1f1f1;
+  background-clip: padding-box;
+  border: 1px solid;
+  border-color: #ccc #c5c5c5 #bbb;
+  border-radius: 3px;
+  cursor: pointer;
+  @include box-sizing(border-box);
+  @include linear-gradient(top, rgba(white, .4),
+                                rgba(white, 0) 50%,
+                                rgba(black, 0) 51%,
+                                rgba(black, .05));
+  @include box-shadow(inset 0 1px #fcfcfc,
+                      0 1px 1px rgba(black, .05));
+
+  &:hover {
+    color: #555;
+    background-color: #f6f6f6;
+  }
+
+  &:focus,
+  &.focus {
+    border-color: $focusColor;
+    outline: none;
+    @include box-shadow(0 0 2px rgba($focusColor, .5));
+  }
+
+  &:active,
+  &.active {
+    color: #fafafa;
+    text-shadow: 0 -1px rgba(black, .5);
+    background: #6b6b6b;
+    border-color: #383838 #595959 #777;
+    @include linear-gradient(top, #717171, #9a9a9a);
+    @include box-shadow(inset 0 1px 2px rgba(black, .15),
+                        0 1px rgba(white, .8));
+  }
+}
+
+a.button {
+  line-height: $buttonHeight - 2px;
+  text-decoration: none;
+}
+
+.button-round {
+  padding: 0 floor($buttonHeight / 2);
+  border-radius: ceil($buttonHeight / 2);
+}
+
+%button-active-alt {
+  color: #555;
+  text-shadow: 0 1px rgba(white, .4);
+  background: #e1e3e3;
+  border-color: #bbb #c5c5c5 #c1c1c1;
+  @include linear-gradient(top, #e0e1e0, #f1f4f4);
+  @include box-shadow(inset 0 1px 1px rgba(black, .07),
+                      0 1px 1px rgba(black, .05));
+}

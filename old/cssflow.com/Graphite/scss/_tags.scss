@@ -1,0 +1,48 @@
+$tagHeight: 26px;
+$tagHoleSize: 4px;
+
+.tag {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  margin-bottom: 1px;
+  padding: 0 floor($tagHeight * .35) 0 floor($tagHeight * .7) + $tagHoleSize + 2px;
+  line-height: $tagHeight - 2px;
+  color: #666;
+  text-shadow: 0 1px rgba(white, .8);
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-bottom-color: #c1c1c1;
+  border-radius: 3px;
+  @include linear-gradient(top, rgba(white, .4),
+                                rgba(white, 0) 50%,
+                                rgba(black, 0) 51%,
+                                rgba(black, .05));
+  @include box-shadow(inset 0 1px #fcfcfc,
+                      0 1px 1px rgba(black, .05));
+
+  &:hover {
+    color: #666;
+    text-decoration: none;
+    background-color: #f6f6f6;
+  }
+
+  &:active {
+    margin-top: 1px;
+    margin-bottom: 0;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: round($tagHeight / 2 - $tagHoleSize / 2) - 2px;
+    left: round($tagHeight / 2 - $tagHoleSize / 2) - 2px;
+    width: $tagHoleSize;
+    height: $tagHoleSize;
+    background: #f4f6fa;
+    border: 1px solid #b4b4b4;
+    border-radius: ceil($tagHoleSize / 2) + 1px;
+    @include box-shadow(inset 0 1px rgba(black, .1),
+                        0 1px rgba(white, .8));
+  }
+}

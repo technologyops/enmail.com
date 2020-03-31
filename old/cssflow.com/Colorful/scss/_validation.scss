@@ -1,0 +1,62 @@
+%validation {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+
+  > input:focus {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.valid {
+  @extend %validation;
+
+  > input {
+    color: #435c26;
+    text-shadow: 0 1px rgba(white, .3);
+    background: #ddfabf;
+    border-color: #7ba845 #89bc4d #89bc4d;
+  }
+
+  &:before { // Check mark
+    content: '';
+    position: absolute;
+    top: round($textInputHeight / 2) - 6px;
+    right: 8px;
+    width: 10px;
+    height: 4px;
+    border: solid #508f29;
+    border-width: 0 0 3px 3px;
+    @include transform(rotate(-45deg));
+  }
+}
+
+.invalid {
+  @extend %validation;
+
+  > input {
+    color: #833230;
+    text-shadow: 0 1px rgba(white, .3);
+    background: #fbd3c4;
+    border-color: #e55d48 #e5725a #e5725a;
+  }
+
+  &:before,
+  &:after { // X mark
+    content: '';
+    position: absolute;
+    top: round($textInputHeight / 2) - 7px;
+    right: 12px;
+    width: 3px;
+    height: 12px;
+    background: #db3e3b;
+    @include transform(rotate(45deg));
+  }
+
+  &:after { @include transform(rotate(-45deg)); }
+}
+
+ // IE 8 doesn't support CSS transforms — hide icons
+
+.lt-ie9 { .valid, .invalid { &:before, &:after { display: none; } } }

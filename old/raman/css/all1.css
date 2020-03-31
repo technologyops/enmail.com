@@ -1,0 +1,72 @@
+html {background: url('/images/bg_main.jpg') repeat-x;}
+body {
+	font:11px/14px Arial, sans-serif;
+	color:#000;
+	background: url(../photos/sample7.jpg) 78% 0 no-repeat;
+	margin:0;
+	padding:0;
+	min-width:994px;
+	width: 100%;
+opacity: 1;
+	
+}
+img {
+	border:none;
+	display:block;
+}
+
+
+.content-holder {
+	margin:0 auto;
+	width:994px;
+	overflow:hidden;
+	padding:0 0 20px;
+}
+* html .content-holder {
+	overflow:visible;
+	height:691px;
+}
+.slogan {
+	overflow:hidden;
+	width:962px;
+	height:236px;
+	padding:201px 0 0 32px;
+}
+.slogan h1 {
+	background:url(../images/slogan.png) no-repeat;
+	width:573px;
+	height:174px;
+	margin:0;
+	padding:0;
+	text-indent:-9999px;
+	overflow:hidden;
+}
+.box-info {
+	background:url(../images/border3.jpg) repeat-y;
+	width:970px;
+	overflow:hidden;
+}
+.inf {
+	color: #cccccc;
+	float:left;
+	width:302px;
+	padding:10px;
+	margin:0 2px 0 0;
+}
+.brief table tr td {
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+}
+.brief .brief_image a img {
+	float:left;
+	margin:0 7px 0 0;
+}
+.brief_summary{
+	font:16px 'Trebuchet MS',Arial, sans-serif;
+color:FFCCCC;
+font-style: italic;
+}
+  /* --- =navigation (ul) --- */
+
+  

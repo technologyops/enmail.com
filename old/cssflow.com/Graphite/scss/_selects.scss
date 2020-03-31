@@ -1,0 +1,76 @@
+$selectHeight: 29px;
+$selectDefaultWidth: 200px;
+
+.select {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  overflow: hidden;
+  width: $selectDefaultWidth;
+  height: $selectHeight;
+  background: #f1f1f1;
+  border: 1px solid;
+  border-color: #ccc #c5c5c5 #bbb;
+  border-radius: 3px;
+  @include box-sizing(border-box);
+  @include linear-gradient(top, rgba(white, .4),
+                                rgba(white, 0) 50%,
+                                rgba(black, 0) 51%,
+                                rgba(black, .05));
+  @include box-shadow(inset 0 1px #fcfcfc,
+                      0 1px 1px rgba(black, .05));
+
+  &:hover { background-color: #f6f6f6; }
+
+  > select {
+    display: block;
+    position: relative;
+    width: 112%;
+    height: $selectHeight - 2px;
+    line-height: round($fontSize * 1.4);
+    margin: 0;
+    // Magic formula for correct vertical alignment in Firefox
+    padding: floor(($selectHeight - round($fontSize * 1.4) - 2px) / 2);
+    padding-left: floor($selectHeight * .35);
+    color: #555;
+    text-shadow: 0 1px white;
+    background: transparent;
+    background: rgba(black, 0); // Opera
+    border: 0;
+    -webkit-appearance: none;
+
+    &:focus {
+      z-index: 2;
+      width: 100%;
+      outline: 1px solid $focusColor;
+      outline-offset: -1px;
+    }
+
+    &::-ms-expand { display: none; } // Hide dropdown arrow in IE 10
+  }
+
+  option { text-shadow: none; }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: floor($selectHeight / 2) - 2px;
+    right: floor($selectHeight * .4);
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    pointer-events: none;
+  }
+
+  &:before {
+    margin-top: 1px;
+    border-top-color: white;
+  }
+
+  &:after {
+    border-top-color: #555;
+    border-top-color: rgba(black, .6);
+  }
+}

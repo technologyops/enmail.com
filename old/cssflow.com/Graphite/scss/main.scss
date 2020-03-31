@@ -1,0 +1,45 @@
+$fontFamily: 'Lucida Grande', Verdana, Arial, sans-serif;
+$fontSize: 12px;
+$lineHeight: 21px;
+$textColor: #404040;
+$focusColor: #6e9ef7;
+
+@import 'mixins',
+        'reset',
+        'normalize';
+
+body {
+  font: #{$fontSize}/#{$lineHeight} $fontFamily;
+  color: $textColor;
+  background: #f4f6fa;
+}
+
+a {
+  color: #007fcc;
+  text-decoration: none;
+
+  &:hover {
+    color: #0072ba;
+    text-decoration: underline;
+  }
+}
+
+strong { font-weight: bold; }
+
+@import 'text-inputs',
+        'text-input-hints',
+        'search-inputs',
+        'option-inputs',
+        'selects',
+        'switches',
+        'buttons',
+        'button-groups',
+        'button-dropdowns',
+        'pager-buttons',
+        'tags',
+        'alerts',
+        'tables',
+        'progress-bars',
+        'horizontal-lines',
+        'tooltips',
+        'popovers';

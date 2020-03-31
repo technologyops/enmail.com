@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Graphite UI</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/demo.css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script><![endif]-->
+</head>
+<body>
+  <div class="demo">
+    <div class="demo-left">
+      <p>
+        <input type="submit" value="Submit" class="button">
+        <button class="button focus">Submit</button>
+        <a href="#" class="button active">Submit</a>
+        <a href="#" class="button button-round">Update</a>
+      </p>
+
+      <div class="button-group">
+        <a href="#" class="button button-prev">Previous</a>
+        <a href="#" class="button button-next">Next</a>
+      </div>
+
+      <div class="button-group">
+        <a href="#" class="button">Account</a>
+        <a href="#" class="button active">Password</a>
+        <a href="#" class="button">Profile</a>
+        <a href="#" class="button">Apps</a>
+      </div>
+
+      <div class="tooltip tooltip-up">
+        <p>Tooltip</p>
+      </div>
+
+      <p>
+        <a href="#" class="tag">HTML5</a>
+        <a href="#" class="tag">CSS3</a>
+        <a href="#" class="tag">Interface</a>
+      </p>
+
+      <div class="popover popover-up">
+        <h6>Popover</h6>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+
+      <div class="button-dropdown open">
+        <a href="#" class="button">Dropdown</a>
+        <a class="button toggle">More</a>
+        <ul class="dropdown">
+          <li><a href="#">Copy</a></li>
+          <li><a href="#">Paste</a></li>
+        </ul>
+      </div>
+
+      <p class="alert notice">
+        <strong>Done!</strong> You successfully completed this project.
+        <a href="#" class="alert-close">&times;</a>
+      </p>
+
+      <p class="alert">
+        <strong>Oops!</strong> Something is technically wrong.
+        <a href="#" class="alert-close">&times;</a>
+      </p>
+    </div>
+
+    <div class="demo-center">
+      <p><input type="text" placeholder="Placeholder…"></p>
+
+      <p>
+        <textarea></textarea>
+        <span class="text-input-hint">
+          <strong>Hint:</strong> 140 characters or less.
+        </span>
+      </p>
+
+      <p class="search"><input type="search" placeholder="Filter…" autofocus></p>
+
+      <form action="index.html" method="get" class="search-form">
+        <input type="search" placeholder="Search…">
+        <button type="submit" class="button">Go</button>
+      </form>
+    </div>
+
+    <div class="demo-right">
+      <p class="demo-switches">
+        <span class="switch unicode">
+          <input type="checkbox" id="s1">
+          <label for="s1" data-on="✓" data-off="✕"></label>
+        </span>
+
+        <span class="switch switch-square">
+          <input type="checkbox" id="s2">
+          <label for="s2" data-on="I" data-off="O"></label>
+        </span>
+
+        <span class="switch unicode">
+          <input type="checkbox" id="s3" checked>
+          <label for="s3" data-on="✓" data-off="✕"></label>
+        </span>
+
+        <span class="switch switch-square">
+          <input type="checkbox" id="s4" checked>
+          <label for="s4" data-on="I" data-off="O"></label>
+        </span>
+      </p>
+
+      <p class="demo-options">
+        <label class="option">
+          <input type="checkbox">
+          <span class="checkbox"></span>
+        </label>
+
+        <label class="option">
+          <input type="checkbox" class="focus">
+          <span class="checkbox"></span>
+        </label>
+
+        <label class="option">
+          <input type="radio" name="radio1">
+          <span class="radio"></span>
+        </label>
+
+        <label class="option">
+          <input type="radio" name="radio2" class="focus">
+          <span class="radio"></span>
+        </label>
+      </p>
+
+      <p class="demo-options">
+        <label class="option">
+          <input type="checkbox" checked>
+          <span class="checkbox"></span>
+        </label>
+
+        <label class="option">
+          <input type="checkbox" class="focus" checked>
+          <span class="checkbox"></span>
+        </label>
+
+        <label class="option">
+          <input type="radio" name="radio1" checked>
+          <span class="radio"></span>
+        </label>
+
+        <label class="option">
+          <input type="radio" name="radio2" class="focus" checked>
+          <span class="radio"></span>
+        </label>
+      </p>
+
+      <div class="select">
+        <select>
+          <option selected>Select…</option>
+          <option>One</option>
+          <option>Two</option>
+          <option>Three</option>
+        </select>
+      </div>
+
+      <div class="progress">
+        <span style="width: 42%"></span> 42%
+      </div>
+
+      <div class="progress progress-blue">
+        <span style="width: 78%">78%</span>
+      </div>
+
+      <hr class="hr">
+    </div>
+
+    <table class="table">
+      <thead class="table-head">
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Views</th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <tr>
+          <td>1</td>
+          <td>Lorem ipsum dolor sit amet</td>
+          <td>Published</td>
+          <td>4216</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Consectetur adipiscing elit</td>
+          <td>Draft</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Integer molestie lorem at massa</td>
+          <td>Published</td>
+          <td>2315</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

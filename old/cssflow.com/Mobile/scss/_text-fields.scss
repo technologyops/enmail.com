@@ -1,0 +1,45 @@
+$textFieldHeight: 36px;
+
+.text-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-left: floor($textFieldHeight * .3);
+  width: 30%;
+  line-height: $textFieldHeight;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @include box-sizing(border-box);
+
+  + .text-field { padding-left: 30%; }
+}
+
+.text-field {
+  display: block;
+  width: 100%;
+  height: $textFieldHeight;
+  padding: 0 floor($textFieldHeight * .3);
+  font-size: $fontSize + 1px;
+  color: lighten($textColor, 10%);
+  background: white;
+  border: 1px solid #ccc;
+  border-top-color: #c2c2c2;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  @include box-shadow(inset 0 1px rgba(black, .05), 0 1px rgba(white, .3));
+
+  &:focus {
+    color: $textColor;
+    border-color: #539fee;
+    outline: none;
+    @include box-shadow(0 0 0 1px #539fee);
+  }
+}
+
+.text-area {
+  padding: floor($textFieldHeight * .1) floor($textFieldHeight * .2);
+  height: ($fontSize + 1) * $lineHeight * 3 + floor($textFieldHeight * .1) * 2 + 2px;
+  line-height: $lineHeight;
+  resize: none;
+  @extend .text-field;
+}

@@ -1,0 +1,30 @@
+$tableLineHeight: 33px;
+
+.table {
+  width: 100%;
+  line-height: $tableLineHeight;
+  text-align: left;
+  background: white;
+  border: 2px solid #d7ebf8;
+  border-collapse: separate;
+  border-radius: 2px;
+}
+
+.table-head {
+  > tr > th {
+    line-height: $tableLineHeight - 2px;
+    padding: 0 floor($tableLineHeight * .35) 2px;
+    font-weight: bold;
+    text-shadow: 0 1px rgba(white, .2);
+    background: #d7ebf8;
+  }
+}
+
+.table-body {
+  > tr {
+    &:nth-child(2n) { background: #f6f9fb; }
+    &:hover { background: #eef6fa; }
+  }
+
+  > tr > td { padding: 0 floor($tableLineHeight * .35); }
+}

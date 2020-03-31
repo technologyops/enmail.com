@@ -1,0 +1,166 @@
+/* CSS Document */
+
+/* Containers */
+
+#container {
+	width: 1003px;
+	margin-left: auto;
+	margin-right: auto;	
+}
+
+#main_cntr	{
+	width: 1003px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#logo_cnt	{
+width:995px;height:110px;float:left;background:#FFFFFF; padding-right:6px; position:relative;
+}
+
+#slide_cnt	{
+width:1000px;height:364px;float:left;/* background:url(images/slides/slide3.jpg);position:relative; */
+}
+
+#slide_cnt1	{
+width:1000px;height:367px;float:left; /*background:url(images/slides/slide_final.jpg) no-repeat;position:relative; */
+}
+
+#body_cnt	{
+float:left; text-align:left; width:1000px; position:relative; background:#FFFFFF; overflow:hidden;position:relative;
+}
+
+#body_container	{
+background:#FFFFFF; float:left; width:1004px; height:auto;position:relative;
+}
+
+#bottom_container	{
+float:left; width:1000px; position:relative; height:30px; text-align:center;
+}
+
+#bottom_cntr_new	{
+float:left; width:1000px; text-align:center;
+}
+
+#slide_show_new	{
+position: absolute; z-index:100; width:1000px; text-align:right;padding-top:10px; padding-bottom:10px;background:url(images/bg_menu.png) repeat;
+}
+
+#body_team	{
+padding-left:10px;padding-right:10px;padding-right:25px; text-align:justify;
+}
+
+#new_
+/* Fonts */
+
+.body_background	{
+background:url(images/line_bg.jpg) repeat;
+}
+
+.body_font	{
+font-family:Arial, Helvetica, sans-serif;font-size:13px;color:#333333;
+}
+
+.body_font_blue_bold	{
+font-family:Arial, Helvetica, sans-serif;font-size:13px;color:#0099FF; font-weight:bold;
+}
+
+.body_font_blue_heading	{
+font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#333333; font-weight:bold;
+}
+
+.logo_padding	{
+padding-right:10px;padding-top:10px;
+}
+
+.menu_font	{
+font-family:Arial, Helvetica, sans-serif;font-size:18px;color:#000000; font-weight:bold;
+}
+
+.body_headers	{
+font-family:Arial, Helvetica, sans-serif;font-size:17px;color:#080904; font-weight:bold;padding-left:12px;
+}
+
+.ul_padding	{
+padding-top:5px;
+}
+
+.ul_padding_plus	{
+padding-top:12px;
+}
+
+.body_font_blue_italic	{
+font-family:Arial, Helvetica, sans-serif;font-size:13px;color:#0099FF; font-weight:bold;
+}
+
+.page_under_construction	{
+font-family: Arial, Helvetica, sans-serif; font-size:17px; color:#0099FF; font-weight:bold; text-align:center;
+}
+
+.text_box	{
+width:200px;font-family:tahoma;color:#000000;font-size:12px;
+}
+
+.text_area	{
+width:200px; height:67px;font-family:Arial, Helvetica, sans-serif;color:#000000;font-size:12px;
+}
+
+.submit_button	{
+border:1px solid #000000; background:#CCCCCC; cursor:pointer; width:90px; height:30px;
+}
+
+.team_heading	{
+font-family:Arial, Helvetica, sans-serif;font-size:13px;color:#0099FF;
+}
+
+.contact_us_border	{
+border-bottom:1px solid #CCCCCC;
+}
+
+.receive_mail	{
+font-family:Arial, Helvetica, sans-serif; color:#0099FF; font-size:14px; font-weight:bold; background:#E6E6E6; padding-left:8px;
+}
+
+.receive_mail_table_border	{
+border:1px solid #CCCCCC;font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#333333;
+}
+
+.mail_not_sent	{
+font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; border:1px solid #FFAEB0; background:#FFE6E7;
+}
+
+.padding_left	{
+padding-left:17px;
+}
+
+.mail_sent	{
+font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; border:1px solid #C1FDB0; background:#EEFFEC;
+}
+
+.menu_border	{
+border-right:2px solid #FFFFFF;
+}
+
+.cursor_pointer:hover	{
+cursor:pointer;font-weight:bold;font-size:17px;color:#000000;
+}
+
+.cursor_pointer	{
+font-family:Arial, Helvetica, sans-serif;font-size:13px;color:#DA2007; text-decoration:underline;
+}
+
+.process_tech_table	{
+border:1px solid #CCCCCC;box-shadow: 5px 5px 8px #818181;-webkit-box-shadow: 5px 5px 8px #818181;-moz-box-shadow: 5px 5px 8px #818181;
+}
+
+.border_bottom	{
+border-bottom:1px solid #CCCCCC;
+}
+
+.red_heading	{
+font-family:Arial, Helvetica, sans-serif; color:#DA2007;font-size:13px; font-weight:bold;
+}
+
+.red_heading_plus	{
+font-family:Arial, Helvetica, sans-serif; color:#DA2007;font-size:15px; font-weight:bold;
+}

@@ -1,0 +1,37 @@
+# Version 2.0
+
+  * Refactor most components (some filenames have changed).
+
+  * New components: button dropdowns, headings, tables and alerts.
+
+  * Increase the default size of most elements.
+
+  * Add focus state of dropdown lists (selects) and switches.
+
+  * Change markup of checkboxes and radios, and add variable size.
+
+  * Fix placeholder pseudo-class in recent versions of Firefox and IE 10.
+
+  * Fix vertical alignment of dropdown lists in Firefox.
+
+  * Drop support for Safari 4 (usage share below .03%).
+
+# Version 1.1
+
+  * New components: search inputs and validation.
+
+  * Use a check mark icon instead of a Unicode character inside checkboxes.
+
+  * Update the "linear-gradient" mixin to support the new, standard syntax.
+    (fixes gradients in IE 10)
+
+  * Fix the "active" background of directional buttons in browsers that don't
+    support gradients.
+
+  * Use Verdana instead of Tahoma on Windows.
+
+  * Extract IE 8-specific styling of dropdown lists (selects).
+    (IE 8 bug fixes are kept separate to highlight what the issues are and to
+    allow easy removal in case you don't require IE 8 support.)
+
+  * Minor code consistency and clean-up.

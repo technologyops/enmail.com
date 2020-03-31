@@ -1,0 +1,53 @@
+$optionsLabelHeight: 37px;
+
+.options { padding: 0; }
+
+.options-label {
+  position: relative;
+  margin: 0;
+  padding: 0 floor($optionsLabelHeight / 3) 1px $optionsLabelHeight;
+  line-height: $optionsLabelHeight - 1px;
+  font-size: $fontSize + 1px;
+}
+
+.options-input {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: $optionsLabelHeight;
+  height: $optionsLabelHeight;
+  opacity: 0;
+}
+
+.options-desc {
+  color: darken($textColor, 10%);
+
+  .options-input:checked + & { color: #4a648b; }
+  .options-input:checked + &:before { // Check mark
+    content: '';
+    position: absolute;
+    top: floor($optionsLabelHeight / 2) - 5px;
+    left: floor($optionsLabelHeight / 2) - 6px;
+    width: 13px;
+    height: 5px;
+    border: solid #4a648b;
+    border-width: 0 0 2px 2px;
+    pointer-events: none;
+    @include transform(rotate(-45deg));
+  }
+}
+
+.options.radio {
+  .options-label { padding: 0 $optionsLabelHeight 1px floor($optionsLabelHeight / 3); }
+
+  .options-input {
+    left: auto;
+    right: 0;
+  }
+
+  .options-input:checked + .options-desc:before {
+    left: auto;
+    right: floor($optionsLabelHeight / 2) - 6px;
+  }
+}

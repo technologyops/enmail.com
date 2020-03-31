@@ -1,0 +1,21 @@
+$switchListItemHeight: 37px;
+
+.switch-list {
+  padding: 0;
+
+  > .switch {
+    display: block;
+    margin: 0;
+    width: auto;
+    height: auto;
+    line-height: $switchListItemHeight - 1px;
+    padding: 0 floor(($switchListItemHeight - $switchHeight) / 2) 1px floor($switchListItemHeight / 3);
+    font-size: $fontSize + 1px;
+    font-weight: bold;
+
+    > .switch-handle {
+      float: right;
+      margin-top: floor(($switchListItemHeight - $switchHeight) / 2);
+    }
+  }
+}

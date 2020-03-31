@@ -1,0 +1,68 @@
+﻿/* Visit http://www.menucool.com/horizontal/javascript-menu for source code and other menu CSS templates */
+
+#sse3
+{
+    background-color: #ff9900;
+    height: 50px;
+    clear:both;
+    text-align:center;/*For IE5 or IE No DOCTYPE*/
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+        
+#sses3
+{
+    margin: 0 auto;/*If you don't want the menu center aligned, remove this line and above text-align:center*/
+    border-left:solid 1px white;
+}
+        
+#sses3 ul
+{
+    font: normal 13px Arial;
+    list-style-type: none;
+    float:left;
+    padding:0;margin:0;
+}
+        
+#sses3 li
+{
+    background: #ff9900;
+    line-height: 50px;
+    position: relative;
+    overflow: hidden;/*used to hide slip*/
+    z-index: 0;
+    float:left;
+    list-style-type: none;
+    padding:0;margin:0;background-image:none;
+    border-right:solid 1px white;
+}
+        
+#sses3 li.current, #sses3 .slip
+{
+    background-color: red;
+}
+        
+#sses3 li a
+{
+    text-align: center;
+    text-decoration: none;
+    padding: 0 30px;/*30px is used to adjust the distance between each menu item. Now the distance is 30+30=60px.*/
+    /*width: 100px;*/ /*If you prefer a fixed width, uncomment this line and comment out above line*/
+    color: white;
+    display: block;
+    z-index: 2;
+    white-space:nowrap;
+}
+        
+#sses3 li.current a
+{
+    color: white;
+}
+        
+#sses3 .slip
+{
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}

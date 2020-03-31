@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>DANDDELI - Ferro Alloy Technologies</title>
+<link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body bgcolor="#D7D7D7">
+
+<!-- Main Container -->
+<div id="main_cntr">
+
+<!-- Container for Logo -->
+<div id="logo_cnt"><img src="images/logo.jpg" width="262" height="89" align="right" class="logo_padding"/></div>
+
+<!-- Container for Slide Image -->
+<div id="slide_cnt1">
+
+
+<script type="text/javascript" src="new_js/jquery.1.3.2-min.js"></script>
+
+<script type="text/javascript">
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose; 
+</script>
+
+<script type="text/javascript">
+      (function ($) {
+        $.fn.fadeTransition = function(options) {
+          var options = $.extend({pauseTime: 5000, transitionTime: 2000, ignore: null, delayStart: 0, pauseNavigation: false}, options);
+          var transitionObject;
+
+          Trans = function(obj) {
+            var timer = null;
+            var current = 0;
+            var els = (options.ignore)?$("> *:not(" + options.ignore + ")", obj):$("> *", obj);
+            $(obj).css("position", "relative");
+            els.css("display", "none").css("left", "0").css("top", "0").css("position", "absolute");
+            
+            if (options.delayStart > 0) {
+              setTimeout(showFirst, options.delayStart);
+            }
+            else
+              showFirst();
+
+            function showFirst() {
+              if (options.ignore) {
+                $(options.ignore, obj).fadeOut(options.transitionTime);
+                $(els[current]).fadeIn(options.transitionTime);
+              }
+              else {
+                $(els[current]).css("display", "block");
+              }
+            }
+
+            function transition(next) {
+              $(els[current]).fadeOut(options.transitionTime);
+              $(els[next]).fadeIn(options.transitionTime);
+              current = next;
+              cue();
+            };
+
+            function cue() {
+              if ($("> *", obj).length < 2) return false;
+              if (timer) clearTimeout(timer);
+              if (!options.pauseNavigation) {
+                timer = setTimeout(function() { transition((current + 1) % els.length | 0)} , options.pauseTime);
+              }
+            };
+            
+            this.showItem = function(item) {
+              if (timer) clearTimeout(timer);
+              transition(item);
+            };
+
+            cue();
+          }
+
+          this.showItem = function(item) {
+            transitionObject.showItem(item);
+          };
+
+          return this.each(function() {
+            transitionObject = new Trans(this);
+          });
+        }
+
+      })(jQuery);
+    
+      var page = {
+        tr: null,
+        init: function() {
+          page.tr = $(".area").fadeTransition({pauseTime: 5000, transitionTime: 2000, ignore: "#introslide", delayStart: 0});
+          $("div.navigation").each(function() {
+            $(this).children().each( function(idx) {
+              if ($(this).is("a"))
+                $(this).click(function() { page.tr.showItem(idx); return false; })
+            });
+
+          });
+        },
+
+        show: function(idx) {
+          if (page.tr.timer) clearTimeout(page.tr.timer);
+          page.tr.showItem(idx);
+        }
+      };
+
+      $(document).ready(page.init);    
+    </script>
+
+
+<style type="text/css">
+#sddm
+{	margin: 0;
+	padding: 0;
+	z-index: 30}
+
+#sddm li
+{	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	font: bold 11px arial;
+	
+	}
+
+
+
+
+#sddm li a
+{	display: block;	
+	padding: 4px 10px;
+	width: 118px;
+	background: none;
+	color: #000000;
+	text-align: center;
+	text-decoration: none;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:15px;
+	color:#000000;
+	font-weight:bold;	
+	}
+
+#sddm li a:hover
+{	background: none;}
+
+#sddm div
+{	position: absolute;
+	visibility: hidden;
+	margin-top:9px;
+	padding: 0;
+	background:none;
+	border: 1px solid #5970B2;
+	width:330px;
+	}
+
+	#sddm div a
+	{	
+		display: block;
+		margin: 0;
+		padding: 5px 10px;
+		width: auto;
+		white-space: nowrap;
+		text-align: left;
+		text-decoration: none;
+		background: #EAEBD8;
+		color: #000000;
+		font: 13px arial;
+		}
+
+	#sddm div a:hover
+	{	background: #49A3FF;
+		color: #FFF}
+</style>
+
+<script type="text/javascript">
+      (function ($) {
+        $.fn.fadeTransition = function(options) {
+          var options = $.extend({pauseTime: 5000, transitionTime: 2000, ignore: null, delayStart: 0, pauseNavigation: false}, options);
+          var transitionObject;
+
+          Trans = function(obj) {
+            var timer = null;
+            var current = 0;
+            var els = (options.ignore)?$("> *:not(" + options.ignore + ")", obj):$("> *", obj);
+            $(obj).css("position", "relative");
+            els.css("display", "none").css("left", "0").css("top", "0").css("position", "absolute");
+            
+            if (options.delayStart > 0) {
+              setTimeout(showFirst, options.delayStart);
+            }
+            else
+              showFirst();
+
+            function showFirst() {
+              if (options.ignore) {
+                $(options.ignore, obj).fadeOut(options.transitionTime);
+                $(els[current]).fadeIn(options.transitionTime);
+              }
+              else {
+                $(els[current]).css("display", "block");
+              }
+            }
+
+            function transition(next) {
+              $(els[current]).fadeOut(options.transitionTime);
+              $(els[next]).fadeIn(options.transitionTime);
+              current = next;
+              cue();
+            };
+
+            function cue() {
+              if ($("> *", obj).length < 2) return false;
+              if (timer) clearTimeout(timer);
+              if (!options.pauseNavigation) {
+                timer = setTimeout(function() { transition((current + 1) % els.length | 0)} , options.pauseTime);
+              }
+            };
+            
+            this.showItem = function(item) {
+              if (timer) clearTimeout(timer);
+              transition(item);
+            };
+
+            cue();
+          }
+
+          this.showItem = function(item) {
+            transitionObject.showItem(item);
+          };
+
+          return this.each(function() {
+            transitionObject = new Trans(this);
+          });
+        }
+
+      })(jQuery);
+    
+      var page = {
+        tr: null,
+        init: function() {
+          page.tr = $(".area").fadeTransition({pauseTime: 5000, transitionTime: 2000, ignore: "#introslide", delayStart: 0});
+          $("div.navigation").each(function() {
+            $(this).children().each( function(idx) {
+              if ($(this).is("a"))
+                $(this).click(function() { page.tr.showItem(idx); return false; })
+            });
+
+          });
+        },
+
+        show: function(idx) {
+          if (page.tr.timer) clearTimeout(page.tr.timer);
+          page.tr.showItem(idx);
+        }
+      };
+
+      $(document).ready(page.init);    
+    </script>
+	
+
+<div id="slide_show_new" class="menu_font" align="right">
+		
+	<ul id="sddm">
+    <li><a href="index.html" style="padding-top:8px;">&nbsp;</a>
+       
+    </li>
+    <li><a href="index.html" style="padding-top:8px; margin-left:160px;border-right:2px solid #000000;">About Us</a>
+    <li style="border-right:2px solid #000000;"><a href="#" 
+        onmouseover="mopen('m3')" 
+        onmouseout="mclosetime()" style="padding-top:8px;">Activities <img src="down.gif" width="9" height="5" border="0" /></a>
+		
+		<div id="m3" onmouseover="mcancelclosetime()" onmouseout="mclosetime()" style="box-shadow: 5px 5px 8px #000000;
+-webkit-box-shadow: 5px 5px 8px #000000;-moz-box-shadow: 5px 5px 8px #000000;">
+			
+		<a href="process_tech.html" style="border-bottom:1px solid #5970B2;">Process Technology Transfers</a>
+        <a href="concep_executing.html" style="border-bottom:1px solid #5970B2;">Conceptualizing and Executing Projects</a>
+        <a href="research_devmnt.html" style="border-bottom:1px solid #5970B2;">Research and Development Projects</a>
+        <a href="ferro_alloy_production.html" style="border-bottom:1px solid #5970B2;">Ferro Alloy Production Practices Training <br />Program</a>
+		<a href="operation_services.html" style="border-bottom:1px solid #5970B2;">Operations Services</a>	
+		<a href="manufacturing_operations.html" style="border-bottom:1px solid #5970B2;">Manufacturing Operations</a>        </div>
+		
+		</li>
+	<li style="border-right:1px solid #CCCCCC;"><a href="vision.html" style="padding-top:8px;border-right:2px solid #000000;">Vision</a></li>
+	<!-- <li style="border-right:2px solid #000000;"><a href="history.html">History</a></li>
+     <li style="border-right:2px solid #000000;"><a href="mission.html">Mission </a></li> -->
+	<li style="border-right:1px solid #CCCCCC;"><a href="team.html" style="padding-top:8px;border-right:2px solid #000000;">Team</a></li>
+    <li><a href="contact_us.html" style="padding-top:8px; padding-left:11px;">Contact Us</a></li>
+	
+	
+</ul>
+<div style="clear:both"></div>
+		
+		
+	</div> 
+<div class="area" align="left" style="height:311px;width:753px;">
+
+			
+        <div class="rotator r10"><img src="images/slides/slide_final.jpg"/></div>
+        <div class="rotator r10"><img src="images/slides/slide_2.jpg"/></div>
+		<div class="rotator r10"><img src="images/slides/slide_demo3.jpg"/></div>
+		<div class="rotator r10"><img src="images/slides/slide_demo.jpg"/></div>					
+		<div class="rotator r10"><img src="images/slides/slide3.jpg"/></div>
+		<div class="rotator r10"><img src="images/slides/slide_demo1.jpg"/></div>
+		<div class="rotator r10"><img src="images/slides/slide_demo2.jpg"/></div>
+		<div class="rotator r10"><img src="images/slides/slide4.jpg"/></div>		
+</div>
+	  
+
+</div>
+<!-- Main Image Container Ends -->
+
+<!-- Body Container -->
+<div id="body_container">
+
+<p class="body_headers">Team :</p>
+
+<div id="body_team" class="body_font">
+
+<p class="red_heading"><u><strong><br />
+  Corporate Team :</strong></u></p>
+<ul style="list-style:url(images/arrow.jpg); text-align:left;" class="body_font">
+<li class="ul_padding_plus"><strong>Mr. Teyjas Schae :</strong> An MBA (USIU - San Diego) with over 20 years experience in designing, constructing, and operating Ferro Alloy processes.</li>
+
+<li class="ul_padding_plus"><strong>Avinash Jaising :</strong> An Economics graduate from the University of Michigan, Ann Arbor, provides strategic guidance. </li>
+
+<li class="ul_padding_plus"><strong>Hannu Hautamaki :</strong> A Mechanical   Engineer, who has headed several organizations involved with metallurgical, and engineering projects in Finland and India. </li>
+
+<li class="ul_padding_plus"><strong>M M.Dayanand :</strong> Over 40 years of experience in handling corporate affairs and government liason for Chemical, Plywood, Hydro Power, and Ferro Alloy companies.</li>
+
+<li class="ul_padding_plus"><strong>M A. Kulkarni : </strong>Over 30 years of experience in Accounting and Finance in Heavy Construction and Ferro Alloys. Currently heading the Finance and Statutory compliance functions.</li>
+
+<li class="ul_padding_plus"><strong>Manu Patel :</strong> An IT  and E-business expert from the University of Auckland, who has a latent passion for chemical technology and its applications in the Ferro Alloy industry.
+</ul>
+
+<p class="red_heading"><strong><u><br />
+  Advisory Team :</u></strong></p>
+
+<ul style="list-style:url(images/arrow.jpg);" class="body_font">
+
+<li class="ul_padding_plus"><strong>Dr. Samar J.Singh :</strong> A cognitive engineer with exceptional skills in varied fields such as, IT, Education, Marine sciences, who provides a lateral view to any projects undertaken.</li>      
+
+<li class="ul_padding_plus"><strong>M.N.Ramchandra :</strong> A Metallurgical engineer who has been responsible for designing, constructing and operating many of the ELKEM Ferro Alloy furnaces in Bhutan, India. </li>
+
+<li class="ul_padding_plus"><strong>Melwyn Lobo :</strong> A Metallurgical engineer with an exceptional insight in operating all kinds of Ferro Alloy plants. He has operated plants in India and the Middle East.</li>
+
+<li class="ul_padding_plus"><strong>Nandan Tavanandi :</strong> An Electrical Engineer with over 30 years of experience in designing, constructing Ferro Alloy and Heavy Engineering Projects.</li>
+
+<li class="ul_padding_plus"><strong>S.S. Hedge :</strong> An Electrical Engineer with over 30 years of experience in operating and maintaining Ferro Alloy furnaces.</li>
+
+<li class="ul_padding_plus"><strong>Karthik Ayyar :</strong> A software engineer from the University of Minnesota,  who is an exceptionally gifted IT professional.</li>
+
+<li class="ul_padding_plus"><strong>N. S.Varahamurti :</strong> An expert in Pollution Control System Design, and Engineering, for the Ferro Alloys, Steel, and Cement Industry with over 30 years experience.</li>
+</ul>
+
+
+<p class="red_heading"><strong><u><br />
+  Operations Team :</u></strong></p>
+  
+  <ul style="list-style:url(images/arrow.jpg);" class="body_font">
+<li class="ul_padding_plus"><strong>P  J. Pai :</strong>  A  Mechanical Engineer with over 30 years of experience in building mechanical equipment for the Metallurgical Industry, including construction of Ferro Alloy Furnaces in Bhutan and India.</li>
+
+<li class="ul_padding_plus"><strong>Vinayak M. Sanjagiri :</strong> A Metallurgical Chemist with over 30 years experience in Research and Development of various process technologies, and processes for the production of several kinds of Ferro Alloys.</li>
+
+<li class="ul_padding_plus"><strong>Shivalingappa Demashetti :</strong> An MBA,  Metallurgical Chemist, Quality Systems Manager & an HR professional.   He has over 20 years of experience in Chemical, Steel, Ferro Alloys and the Rockwool Industry.</li>
+ 
+<li class="ul_padding_plus"><strong>Tukaram Shinde :</strong> A Metallurgical Chemist with over 20 years experience in  operating  Ferro Alloy smelting furnaces.</li>
+
+<li class="ul_padding_plus"><strong>Anil  Gavas :</strong> A multi skilled operations expert.</li>
+
+<li class="ul_padding_plus"><strong>S D. Amblekar :</strong> A highly qualified Quality Control expert.</li>
+
+<li class="ul_padding_plus"><strong>P K. Bendre :</strong>  An innovative mechanical engineer.</li>
+
+<li class="ul_padding_plus"><strong>Sanjay Kanyadi :</strong> An innovative electrical engineer.</li>
+
+<li class="ul_padding_plus"><strong>K S. Rajshekharan :</strong> A highly skilled  Electrical operations expert.</li>
+  </ul>
+  
+  <p class="red_heading"><br /><strong><u>Commercial Team :</u></strong></p>
+
+<ul style="list-style:url(images/arrow.jpg);" class="body_font">
+
+<li class="ul_padding_plus"><strong>Jerome D'Souza :</strong> Vastly experienced commercial executive who heads the Danddeli works.</li>
+
+<li class="ul_padding_plus"><strong>S M. Kadam :</strong> Over 20 years in sales, currently heads the entire gamut of commercial functions.</li>
+
+<li class="ul_padding_plus"><strong>V P. Shenvi :</strong> Highly experienced Head of the legal,  personnel & administrative function.</li>
+
+<li class="ul_padding_plus"><strong>Sanjay Kodkany :</strong> Highly experienced head of the accounting, banking, statutory compliance, and strategic government initiatives.</li>
+
+<li class="ul_padding_plus"><strong>Y Y Modagi :</strong> An experienced accountant responsible for all statutory compliances.</li>
+
+<li class="ul_padding_plus"><strong>N A Kanetkar :</strong> An accountant with over 10 years experience</li>
+
+<li class="ul_padding_plus"><strong>Anand Teli :</strong> A young, multi skilled, Business Development Executive.</li>
+
+<li class="ul_padding_plus"><strong>Ashok R. Kshirsagar (Corporate Office) :</strong> Multi skilled accountant responsible for areas such as IT, Corporate Accounting, and Tax Planning.</li>
+
+<li class="ul_padding_plus"><strong>Vinod Warik (Corporate Office) :</strong> The driving force behind all Office Operations.</li>
+</ul>
+</div>
+
+<p class="body_font">&nbsp;</p>
+</div>
+<!-- Body Container Ends -->
+
+<!-- Bottom Container -->
+<div id="bottom_cntr_new" class="body_font" style=" background:#D7D7D7;">
+<link href="styles.css" rel="stylesheet" type="text/css">
+<div id="bottom_cntr_new" class="body_font">
+<br />© 2012 DANDDELI <br />
+</div>
+</div>
+
+<!-- Main Container Ends -->
+</div>
+
+
+</body>
+</html>

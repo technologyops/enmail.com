@@ -1,0 +1,38 @@
+.text {
+  padding: 10px;
+  text-shadow: 0 1px white;
+  background: $rowBackground;
+  border-top: 1px solid rgba(white, .6);
+  border-bottom: 1px solid darken($bodyBackground, 10%);
+  @include box-shadow(0 1px rgba(white, .6));
+
+  &:first-child { border-top: 0; }
+  &.alt { background: $bodyBackground; }
+
+  > h2 {
+    margin-bottom: 5px;
+    font-size: $fontSize + 1px;
+    font-weight: bold;
+    color: darken($textColor, 10%);
+  }
+}
+
+.text-info {
+  margin: 10px;
+  font-size: $fontSize - 1px;
+  color: lighten($textColor, 15%);
+  text-align: center;
+  text-shadow: 0 1px white;
+}
+
+.more-link:after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  border: solid transparent;
+  border-width: 5px 3px 0;
+  border-top-color: darken($textColor, 10%);
+}

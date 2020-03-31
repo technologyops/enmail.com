@@ -1,0 +1,138 @@
+$switchWidth: 58px;
+$switchHeight: 25px;
+
+.switch {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: $switchWidth;
+  @include user-select(none);
+
+  > label {
+    display: block;
+    position: relative;
+    height: $switchHeight;
+    line-height: $switchHeight - 5px;
+    font-size: 10px;
+    font-weight: bold;
+    color: #bbb;
+    text-align: center;
+    text-transform: uppercase;
+    background: white;
+    border: 2px solid #d9d9d9;
+    border-radius: ceil($switchHeight / 2);
+    @include transition(.15s ease-out);
+
+    &:before {
+      content: attr(data-off);
+      position: absolute;
+      top: 0;
+      right: 3px;
+      width: $switchWidth - $switchHeight;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      margin: 2px;
+      width: $switchHeight - 8px;
+      height: $switchHeight - 8px;
+      background: #ccc;
+      border-radius: ceil($switchHeight / 2);
+    }
+  }
+
+  > input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+    -webkit-appearance: none;
+
+    &:focus { outline: none; }
+  }
+
+  > input:focus + label {
+    color: darken($focusColor, 10%);
+    border-color: $focusColor;
+
+    &:after { background: $focusColor; }
+  }
+
+  > input:checked + label {
+    padding-left: $switchWidth - $switchHeight;
+    color: white;
+    background: $focusColor;
+    border-color: $focusColor;
+
+    &:before {
+      content: attr(data-on);
+      left: 1px;
+    }
+
+    &:after {
+      margin: 1px;
+      width: $switchHeight - 6px;
+      height: $switchHeight - 6px;
+      background: white;
+    }
+  }
+
+  > input:checked:focus + label {
+    background: darken($focusColor, 10%);
+    border-color: darken($focusColor, 10%);
+  }
+}
+
+.switch-square {
+  > label {
+    border-radius: 2px;
+
+    &:before { width: floor($switchWidth / 2) - 4px; }
+
+    &:after {
+      width: floor($switchWidth / 2) - 8px;
+      border-radius: 1px;
+    }
+  }
+
+  > input:checked + label {
+    padding-left: floor($switchWidth / 2);
+
+    &:after { width: floor($switchWidth / 2) - 6px; }
+  }
+}
+
+.switch-green {
+  $color: #4ebd4a;
+
+  > input:checked + label {
+    background: $color;
+    border-color: $color;
+  }
+
+  > input:checked:focus + label {
+    background: darken($color, 10%);
+    border-color: darken($color, 10%);
+  }
+}
+
+// IE 8 doesn't support the :checked selector — revert to native inputs
+
+.lt-ie9 .switch {
+  width: $switchWidth - 4px;
+  height: $switchHeight - 4px;
+  background: white;
+  border: 2px solid #d9d9d9;
+
+  > label { display: none; }
+
+  > input {
+    position: static;
+    width: inherit;
+    height: inherit;
+    vertical-align: top;
+  }
+}

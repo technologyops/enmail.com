@@ -1,0 +1,138 @@
+$searchInputHeight: 29px;
+$searchInputIconColor: #999;
+
+$searchFormHeight: 29px;
+$searchFormIconColor: #777;
+
+.search {
+  position: relative;
+
+  > input {
+    width: 100%;
+    height: $searchInputHeight;
+    padding: 0 floor($searchInputHeight * .45) 0 $searchInputHeight + 1px;
+    border-radius: ceil($searchInputHeight / 2);
+  }
+
+  &:before { // Circle
+    content: '';
+    position: absolute;
+    top: round($searchInputHeight / 2) - 7px;
+    left: round($searchInputHeight / 2) - 5px;
+    width: 6px;
+    height: 6px;
+    border: 2px solid $searchInputIconColor;
+    border-radius: 8px;
+  }
+
+  &:after { // Line
+    content: '';
+    position: absolute;
+    top: round($searchInputHeight / 2) + 3px;
+    left: round($searchInputHeight / 2) + 2px;
+    width: 6px;
+    height: 2px;
+    background: $searchInputIconColor;
+    border-radius: 1px;
+    @include transform(rotate(45deg));
+    @include box-shadow(-1px 0 $searchInputIconColor);
+  }
+}
+
+.search-form {
+  position: relative;
+  padding-right: $searchFormHeight - 1px;
+
+  > input {
+    width: 100%;
+    height: $searchFormHeight;
+    padding: 0 floor($searchFormHeight * .25);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    &:focus {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  > .button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: $searchFormHeight;
+    height: $searchFormHeight;
+    font: 0/0 serif;
+    color: transparent;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    &:before { // Circle
+      content: '';
+      position: absolute;
+      top: round($searchFormHeight / 2) - 8px;
+      left: round($searchFormHeight / 2) - 7px;
+      width: 5px;
+      height: 5px;
+      border: 2px solid $searchFormIconColor;
+      border-radius: 7px;
+      @include box-sizing(content-box); // Opera
+      @include box-shadow(0 1px rgba(white, .4));
+    }
+
+    &:after { // Line
+      content: '';
+      position: absolute;
+      top: round($searchFormHeight / 2) + 1px;
+      left: round($searchFormHeight / 2);
+      width: 5px;
+      height: 2px;
+      background: $searchFormIconColor;
+      border-radius: 1px;
+      @include transform(rotate(45deg));
+      @include box-shadow(0 1px rgba(white, .4),
+                          1px 0 rgba(white, .4),
+                          -1px 0 $searchFormIconColor);
+    }
+
+    &:active {
+      &:before {
+        border-color: white;
+        @include box-shadow(none);
+      }
+
+      &:after {
+        background: white;
+        @include box-shadow(-1px 0 white);
+      }
+    }
+  }
+}
+
+// Reset appearance of search inputs in WebKit
+
+input[type=search] {
+  -webkit-appearance: textfield;
+}
+
+::-webkit-search-decoration,
+::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+// IE 8 doesn't support CSS transforms — hide icon and revert to text button
+
+.lt-ie9 {
+  .search {
+    &:before, &:after { content: none; }
+    > input { padding: 0 floor($searchInputHeight * .25); }
+  }
+
+  .search-form .button {
+    padding: 0;
+    font: #{$fontSize}/#{$searchInputHeight - 2px} $fontFamily;
+    color: #666;
+
+    &:before, &:after { content: none; }
+  }
+}
